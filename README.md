@@ -1,6 +1,5 @@
 # WIT - What Is This?
-##
-Background and Overview
+## Background and Overview
 What Is This? is an all purpose identify app. Users upload pictures of things they want to have identified or know the name of, and other users answer. Everyone is an expert of something!
 
 ## Wireframes
@@ -71,7 +70,7 @@ Group members are Priya Gurung, Lisa Togler, Evan Schwalm
 * Post form (backend, frontend) (Evan)
 * Picture upload (backend, frontend, hosting) (Lisa)
 * Upvotes (backend, frontend) (Priya)
-* Look into/set up hosting
+* Look into/set up hosting (all)
 
 ### Day 5 (Friday):
 * Tags (backend, frontend) (Lisa)
