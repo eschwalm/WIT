@@ -2,6 +2,21 @@
 Background and Overview
 What Is This? is an all purpose identify app. Users upload pictures of things they want to have identified, and other users answer.
 
+## Wireframes
+
+### General View
+![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/GeneralView_mxmsnl.png "General View")
+
+### Question View
+![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/QuestionView_zbmsi4.png 'Question View')
+
+### Ask View
+![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/AskView_a4rzhy.png 'Ask View')
+
+### Search View
+![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/SearchView_umsxcn.png 'Search View')
+
+
 ## Functionality and MVP:
 * User can upload a picture with supporting text
 * Posts can have category tags
