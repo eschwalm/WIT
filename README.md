@@ -43,44 +43,45 @@ What Is This? is an all purpose identify app. Users upload pictures of things th
 ## Group Members and Work Breakdown
 Group members are Priya Gurung, Lisa Togler, Evan Schwalm
 
-### All responsibilities:
+We will all:
+* Discuss project planning and more specific task breakdowns at the beginning and end of each day.
+* Use our repo's Issues tab to collect bugs and assign tasks.
 * Research technologies and libraries to use for the project as we go and see fit.
-* Overall look, layout and design (front-end design)
-* Get app on the App Store and curate the app’s App Store page.
-* Make demo website, including description and screencasts.
+* Think about overall look, layout and design (front-end design).
 
-## Day-by-Day Breakdown
+### Day-by-Day Breakdown
 
-### Day 1 (Monday):
-* Learn technologies of MERN stack (React Native, Express.js, Node.js, MongoDB), become familiar with the * overall structure and workflow of the app, know how our technologies interact. (All)
+#### Day 1 (Monday):
+* Learn technologies of MERN stack (React Native, Express.js, Node.js, MongoDB) (all)
+* Become familiar with the overall structure and workflow of the app, know how our technologies interact (all)
 
-### Day 2 (Tuesday):
+#### Day 2 (Tuesday):
 * Have a running server (Evan)
 * Have a database and an idea what our API endpoints look like (Lisa)
 * Have Users set up (or the equivalent of a users table for MongoDB) (Lisa)
 * Make seed data (Evan)
 * Functional entry page to the app with basic design and layout (Priya)
 
-### Day 3 (Wednesday):
+#### Day 3 (Wednesday):
 * Main feed view (backend, frontend) (Evan)
 * Single Post View (backend, frontend) (Priya)
 * Comments (backend, frontend) (Lisa)
 
-### Day 4 (Thursday):
+#### Day 4 (Thursday):
 * Post form (backend, frontend) (Evan)
 * Picture upload (backend, frontend, hosting) (Lisa)
 * Upvotes (backend, frontend) (Priya)
 * Look into/set up hosting (all)
 
-### Day 5 (Friday):
+#### Day 5 (Friday):
 * Tags (backend, frontend) (Lisa)
 * Tag Search (backend, frontend) (Evan)
 * Tag feeds (backend, frontend) (Priya)
 
-### Day 6/7 (Weekend):
+#### Day 6/7 (Weekend):
 * Iron out last design tweaks issues and bugs: Test, log issues and bugs, fix them (all)
 * Get app on the App Store and curate the app’s App Store page (MVP?) (Evan)
 * Set up Demo Website including description and screencasts (MVP?) (Priya)
 * Finalize production README incl screenshots/gifs and code snippets (Lisa)
 
-### Day 8: Project due at 9am
+#### Day 8: Project due at 9am
