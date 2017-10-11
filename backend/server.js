@@ -1,20 +1,28 @@
-const express        = require('express');
-const MongoClient    = require('mongodb').MongoClient;
-const bodyParser     = require('body-parser');
-const db             = require('./config/db');
-const morgan         = require('morgan');
+import express from 'express';
+import mongoose from 'mongoose';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+
+import router from './router';
+import db from './config/db';
 
 const app = express();
-const port = process.env.PORT || 3000;
+
+mongoose.connect(db.url, {
+  useMongoClient: true
+});
+
+mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
-MongoClient.connect(db.url, (err, database) => {
-  if (err) return console.log(err);
-  require('./app/routes')(app, database);
+app.use('/api', router);
 
-  app.use(morgan('combined'));
-  app.listen(port, () => {
-    console.log('Server live on ' + port);
-  });
+// const port = process.env.PORT || 3000;
+
+
+const server = app.listen(3000, () => {
+  const { address, port } = server.address();
+  console.log(`Listening at http://${address}:${port}`);
 });
