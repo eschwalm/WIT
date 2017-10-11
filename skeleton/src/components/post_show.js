@@ -4,7 +4,7 @@ import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
 
-const AlbumDetail = ({album}) => {
+const PostShow = ({album}) => {
   const { thumbnailStyle,
     headerContentStyle,
     headerTextStyle,
@@ -63,4 +63,4 @@ const styles = {
   }
 };
 
-export default AlbumDetail;
+export default PostShow;
