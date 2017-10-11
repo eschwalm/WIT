@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import Axios from 'axios';
-import AlbumDetail from './album_detail';
+import PostShow from './post_show';
 
-class AlbumList extends Component {
+class PostsIndex extends Component {
   constructor(props) {
     super(props);
     this.state = { albums: [] };
@@ -15,7 +15,7 @@ class AlbumList extends Component {
 
   renderAlbums() {
     return this.state.albums.map(album =>
-      <AlbumDetail key={album.title} album={album} />
+      <PostShow key={album.title} album={album} />
     );
   }
 
@@ -28,4 +28,4 @@ class AlbumList extends Component {
   }
 }
 
-export default AlbumList;
+export default PostsIndex;

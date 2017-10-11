@@ -1,14 +1,14 @@
 import React from 'react';
 import { AppRegistry, View } from 'react-native';
 import Header from './src/components/header';
-import AlbumList from './src/components/album_list';
+import PostsIndex from './src/components/posts_index';
 
 //expand component to fill entire content area of device
 const App = () => (
   <View style={{ flex: 1}}>
     <Header headerText={'Albums'}/>
-    <AlbumList />
+    <PostsIndex />
   </View>
 );
 
-AppRegistry.registerComponent('albums', () => App);
+AppRegistry.registerComponent('skeleton', () => App);
