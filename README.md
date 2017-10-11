@@ -60,9 +60,10 @@ We will all:
 * Have a database and an idea what our API endpoints look like (Lisa)
 * Have Users set up (or the equivalent of a users table for MongoDB) (Lisa)
 * Make seed data (Evan)
-* Functional entry page to the app with basic design and layout (Priya)
+* Research user image uploads to Cloudinary (Lisa)
 
 #### Day 3 (Wednesday):
+* Functional entry page to the app with basic design and layout (Priya)
 * Main feed view (backend, frontend) (Evan)
 * Single Post View (backend, frontend) (Priya)
 * Comments (backend, frontend) (Lisa)
@@ -80,7 +81,7 @@ We will all:
 
 #### Day 6/7 (Weekend):
 * Iron out last design tweaks issues and bugs: Test, log issues and bugs, fix them (all)
-* Get app on the App Store and curate the app’s App Store page (MVP?) (Evan)
+* Get app on the App Store and curate the app’s App Store page (Not an MVP feature) (Evan)
 * Set up Demo Website including description and screencasts (MVP?) (Priya)
 * Finalize production README incl screenshots/gifs and code snippets (Lisa)
 
