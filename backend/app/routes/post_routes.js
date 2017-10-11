@@ -21,7 +21,13 @@ module.exports = function(app, db) {
 
   //INDEX
   app.get('/posts', (req, res) => {
-    db.collection('posts').find();
+    db.collection('posts').find({}, (err, item) => {
+      if (err) {
+        res.send({'error':'An error has occurred'});
+      } else {
+        res.send(item);
+      }
+    });
   });
 
   //SHOW
