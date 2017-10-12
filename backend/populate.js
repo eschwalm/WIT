@@ -3,7 +3,8 @@ import Post from './models/post';
 import db from './config/db';
 
 const posts = [
-  { "img": "http://res.cloudinary.com/dhuab49yi/image/upload/v1506717168/sample.jpg",
+  { "img":
+  "http://res.cloudinary.com/dhuab49yi/image/upload/v1506717168/sample.jpg",
     "category": "Nature",
     "description": "What kind of flower is this?",
     "answers": [],

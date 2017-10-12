@@ -3,27 +3,28 @@ import { ScrollView } from 'react-native';
 import Axios from 'axios';
 import PostShow from './post_show';
 
-
 class PostsIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = { albums: [] };
+    this.state = { posts: [] };
   }
   componentWillMount() {
     Axios.get('http://localhost:3000/api/posts')
-    .then(response => this.setState({ albums: response.data }));
+
+    .then(response => this.setState({ posts: response.data }));
   }
 
-  renderAlbums() {
-    return this.state.albums.map(album =>
-      <PostShow key={album.description} album={album} />
+  renderPosts() {
+    return this.state.posts.map(post =>
+      <PostShow key={post._id} post={post} />
+
     );
   }
 
   render() {
     return (
       <ScrollView>
-        {this.renderAlbums()}
+        {this.renderPosts()}
       </ScrollView>
     );
   }
