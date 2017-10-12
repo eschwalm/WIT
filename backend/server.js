@@ -15,14 +15,14 @@ mongoose.connect(db.url, {
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.use('/api', router);
 
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 
-const server = app.listen(3000, () => {
-  const { address, port } = server.address();
+const server = app.listen(port, () => {
+  const { address } = server.address();
   console.log(`Listening at http://${address}:${port}`);
 });
