@@ -6,7 +6,7 @@ import PostsIndex from './src/components/posts_index';
 //expand component to fill entire content area of device
 const App = () => (
   <View style={{ flex: 1}}>
-    <Header headerText={'Albums'}/>
+    <Header headerText={'Posts'}/>
     <PostsIndex />
   </View>
 );

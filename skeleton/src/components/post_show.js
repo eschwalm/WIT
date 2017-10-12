@@ -4,7 +4,8 @@ import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
 
-const PostShow = ({album}) => {
+const PostShow = ({post}) => {
+  console.log(post.img);
   const { thumbnailStyle,
     headerContentStyle,
     headerTextStyle,
@@ -14,24 +15,19 @@ const PostShow = ({album}) => {
   return (
     <Card>
       <CardSection>
-      <View style={thumbnailContainerStyle}>
-        <Image
-          style={thumbnailStyle}
-          source={{ uri: album.thumbnail_image}}/>
-      </View>
-      <View style={headerContentStyle}>
-        <Text style={headerTextStyle}>{album.title}</Text>
-        <Text>{album.artist}</Text>
-      </View>
+        <View style={headerContentStyle}>
+          <Text>{post.category}</Text>
+          <Text style={headerTextStyle}>{post.title}</Text>
+        </View>
       </CardSection>
       <CardSection>
         <Image
           style={imageStyle}
-          source={{ uri: album.image} } />
+          source={ { uri: post.img } } />
       </CardSection>
       <CardSection>
-        <Button onPress={() => Linking.openURL(album.url)}>
-          Buy Now
+        <Button>
+          Answer
         </Button>
       </CardSection>
     </Card>
