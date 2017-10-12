@@ -17,17 +17,17 @@ const PostShow = ({album}) => {
       <View style={thumbnailContainerStyle}>
         <Image
           style={thumbnailStyle}
-          source={{ uri: album.thumbnail_image}}/>
+          source={{ uri: album.img }}/>
       </View>
       <View style={headerContentStyle}>
-        <Text style={headerTextStyle}>{album.title}</Text>
-        <Text>{album.artist}</Text>
+        <Text style={headerTextStyle}>{album.description}</Text>
+        <Text>{album.category}</Text>
       </View>
       </CardSection>
       <CardSection>
         <Image
           style={imageStyle}
-          source={{ uri: album.image} } />
+          source={{ uri: album.img} } />
       </CardSection>
       <CardSection>
         <Button onPress={() => Linking.openURL(album.url)}>

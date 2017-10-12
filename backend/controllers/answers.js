@@ -2,10 +2,11 @@
 
 import mongoose from 'mongoose';
 import Answer from '../models/answer';
+import Post from '../models/posts';
 
 
 export const answerIndex = function(req, res) {
-  Answer.find({}, function(err, answer) {
+  Answer.find({ post_id: req.params.postId }, function(err, answer) {
     if (err)
       res.send(err);
     res.send(answer);
@@ -19,6 +20,7 @@ export const answerCreate = function(req, res) {
     if (err)
       res.send(err);
     res.send(answer);
+
   });
 };
 
@@ -39,6 +41,13 @@ export const answerUpdate = function(req, res) {
   });
 };
 
+export const deletePostAnswers = function(req, res) {
+  Answer.deleteMany({ post_id: req.params.postId }, function(err, ans) {
+    if (err)
+      res.send(err);
+    res.send({ message: `Answers for ${req.params.postId} deleted`});
+  });
+};
 
 export const answerDelete = function(req, res) {
   Answer.remove({
