@@ -2,7 +2,6 @@
 
 import mongoose from 'mongoose';
 import Answer from '../models/answer';
-import Post from '../models/posts';
 
 
 export const answerIndex = function(req, res) {

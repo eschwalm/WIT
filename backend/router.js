@@ -36,7 +36,7 @@ router.route('/posts/:postId/answers')
   .post(answerCreate);
 
 router.route('/posts/:postId/answers/:answerId')
-  .update(answerUpdate)
+  .put(answerUpdate)
   .delete(answerDelete);
 
 export default router;
