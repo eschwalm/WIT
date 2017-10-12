@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 // Define post schema
 var postSchema = new Schema({
-  description: String,
+  title: String,
   img: String,
   category: String,
   answers: Array,
