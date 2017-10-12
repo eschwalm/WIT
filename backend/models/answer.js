@@ -6,7 +6,11 @@ var answerSchema = new Schema({
   upvotes: Number,
   post_id: String,
   created_at: Date
-});
+},
+{
+  timestamps: true
+}
+);
 
 // Export Mongoose model
 export default mongoose.model('answer', answerSchema);

@@ -5,8 +5,10 @@ var postSchema = new Schema({
   title: String,
   img: String,
   category: String,
-  answers: Array,
-  created_at: Date,
+  answers: Array
+},
+{
+  timestamps: true
 });
 
 // Export Mongoose model
