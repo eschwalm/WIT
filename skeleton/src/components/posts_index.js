@@ -3,6 +3,20 @@ import { ScrollView } from 'react-native';
 import Axios from 'axios';
 import PostShow from './post_show';
 
+//------ Posts Index Container code ---------------------------------
+// Can factor this out into it's own component if we want
+import { connect } from 'react-redux';
+
+@connect(
+  state => ({
+    posts: state.posts
+  }),
+  dispatch => ({
+    fetchAllPosts: () => dispatch(fetchAllPosts())
+  })
+)
+//-------------------------------------------------------------------
+
 class PostsIndex extends Component {
   constructor(props) {
     super(props);

@@ -2,7 +2,7 @@ import * as APIUtil from '../api/post_api';
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_SINGLE_POST = 'RECEIVE_SINGLE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
-export const CREATE_POST = 'CREATE_POST';
+
 
 // async actions
 export const fetchAllPosts = () => (dispatch) => (
@@ -17,7 +17,8 @@ export const fetchSinglePost = (id) => (dispatch) => (
 
 export const createPost = (post) => (dispatch) => (
   APIUtil.createPost(post)
-    .then(post => dispatch(createPost(post)))
+    .then(post => dispatch(receiveSinglePost(post)))
+
 );
 
 export const deletePost = (id) => (dispatch) => (
@@ -33,11 +34,6 @@ export const receiveAllPosts = (posts) => ({
 
 export const receiveSinglePost = (post) => ({
   type: RECEIVE_SINGLE_POST,
-  post
-});
-
-export const createPost = (post) => ({
-  type: CREATE_POST,
   post
 });
 
