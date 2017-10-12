@@ -3,7 +3,8 @@ import {
   postIndex,
   postCreate,
   postShow,
-  postDelete } from './controllers/posts';
+  postDelete,
+  categoryIndex } from './controllers/posts';
 
 // Initialize the router
 const router = Router();
@@ -16,5 +17,7 @@ router.route('/posts/:postId')
   .get(postShow)
   .delete(postDelete);
 
+router.route('/:category')
+  .get(categoryIndex);
 
 export default router;

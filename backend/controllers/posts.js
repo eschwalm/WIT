@@ -3,6 +3,15 @@
 import mongoose from 'mongoose';
 import Post from '../models/post';
 
+
+export const categoryIndex = function(req, res) {
+  Post.find({ category: req.params.category }, function(err, category) {
+    if (err)
+      res.send(err);
+    res.send(category);
+  });
+};
+
 export const postIndex = function(req, res) {
   Post.find({}, function(err, post) {
     if (err)
@@ -12,7 +21,6 @@ export const postIndex = function(req, res) {
 };
 
 export const postCreate = function(req, res) {
-  console.log(req.body);
   var newPost = new Post(req.body);
   newPost.save(function(err, post) {
     if (err)

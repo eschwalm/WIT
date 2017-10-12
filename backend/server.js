@@ -15,7 +15,7 @@ mongoose.connect(db.url, {
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 app.use('/api', router);
 
