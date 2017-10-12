@@ -40,7 +40,6 @@ export const postUpdate = function(req, res) {
 
 
 export const postDelete = function(req, res) {
-
   Post.remove({
     _id: req.params.postId
   }, function(err, post) {

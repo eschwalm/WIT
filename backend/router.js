@@ -8,7 +8,6 @@ import {
 // Initialize the router
 const router = Router();
 
-//POSTS
 router.route('/posts')
   .get(postIndex)
   .post(postCreate);
