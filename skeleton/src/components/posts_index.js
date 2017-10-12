@@ -10,12 +10,14 @@ class PostsIndex extends Component {
   }
   componentWillMount() {
     Axios.get('http://localhost:3000/api/posts')
+
     .then(response => this.setState({ posts: response.data }));
   }
 
   renderPosts() {
     return this.state.posts.map(post =>
       <PostShow key={post._id} post={post} />
+
     );
   }
 

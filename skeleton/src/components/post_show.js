@@ -15,14 +15,17 @@ const PostShow = ({post}) => {
   return (
     <Card>
       <CardSection>
+
         <View style={headerContentStyle}>
           <Text>{post.category}</Text>
           <Text style={headerTextStyle}>{post.title}</Text>
         </View>
+
       </CardSection>
       <CardSection>
         <Image
           style={imageStyle}
+
           source={ { uri: post.img } } />
       </CardSection>
       <CardSection>

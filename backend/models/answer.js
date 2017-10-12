@@ -4,6 +4,7 @@ import mongoose, { Schema } from 'mongoose';
 var answerSchema = new Schema({
   body: String,
   upvotes: Number,
+  post_id: String,
   created_at: Date
 });
 
