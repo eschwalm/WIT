@@ -1,12 +1,13 @@
 import axios from 'axios';
 
+// This is related to something called Genymotion
 if (Platform.OS !== 'ios') {
   url = 'http://10.0.3.2:3000/api';
 } else {
   url = 'http://localhost:3000/api';
 }
 
-axios.defaults.baseURL = url; //or 'url' if we have the above
+axios.defaults.baseURL = url;
 
 const fetchAllPosts = async () => {
   try {
