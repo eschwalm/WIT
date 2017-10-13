@@ -4,7 +4,7 @@ import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
 
-const PostShow = ({post}) => {
+const PostView = ({post}) => {
   console.log(post.img);
   const { thumbnailStyle,
     headerContentStyle,
@@ -62,4 +62,4 @@ const styles = {
   }
 };
 
-export default PostShow;
+export default PostView;
