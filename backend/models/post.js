@@ -4,8 +4,7 @@ import mongoose, { Schema } from 'mongoose';
 var postSchema = new Schema({
   title: String,
   img: String,
-  category: String,
-  answers: Array
+  category: String
 },
 {
   timestamps: true

@@ -3,6 +3,7 @@ import {
   postIndex,
   postCreate,
   postShow,
+  postUpdate,
   postDelete,
   categoryIndex } from './controllers/posts';
 
@@ -25,15 +26,17 @@ router.route('/posts')
 router.route('/posts/:postId')
   .get(postShow)
   .delete(postDelete)
-  .delete(deletePostAnswers);
+  .put(postUpdate);
 
 router.route('/:category')
   .get(categoryIndex);
 
+
 // ANSWERS
 router.route('/posts/:postId/answers')
   .get(answerIndex)
-  .post(answerCreate);
+  .post(answerCreate)
+  .delete(deletePostAnswers);
 
 router.route('/posts/:postId/answers/:answerId')
   .put(answerUpdate)
