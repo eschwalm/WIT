@@ -5,7 +5,6 @@ import CardSection from './card_section';
 import Button from './button';
 
 const PostIndexItem = ({post}) => {
-  console.log(post.img);
   const { thumbnailStyle,
     headerContentStyle,
     headerTextStyle,
