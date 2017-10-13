@@ -1,32 +1,52 @@
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import { connect } from 'react-redux';
+import { TextInput, Picker, Text, View } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
+import { createPost } from '../actions/post_actions';
 
 
 class NewPostForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { description: "Add details to help us help you!"};
+    this.state = {
+      title: 'New Post Title',
+      img: 'an image url',
+      category: ""
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    console.log("Testing the submit button: ", this.state);
   }
 
   render() {
     return (
-      <Card>
-        <CardSection>
+        <View>
           <TextInput
             style={{height: 100}}
-            onChangeText={(text) => this.setState({description: text})}
-            value={this.state.description}>
-          </TextInput>
-        </CardSection>
-        <CardSection>
-          <Button>
+            value={this.state.title}
+            onChangeText={(title) => this.setState({title})} />
+
+          <Picker onValueChange={(category) => this.setState({category})}>
+            <Picker.Item label="Nature" value="nature" />
+            <Picker.Item label="Objects" value="objects" />
+            <Picker.Item label="People" value="people" />
+            <Picker.Item label="Fashion" value="fashion" />
+            <Picker.Item label="Design" value="design" />
+            <Picker.Item label="I don't know!" value="idk" />
+          </Picker>
+          <Text>{this.state.category}</Text>
+        
+          <Button
+            title="Submit"
+            onPress={this.handleSubmit}>
             Create
           </Button>
-        </CardSection>
-      </Card>
+        </View>
     );
   }
 }
