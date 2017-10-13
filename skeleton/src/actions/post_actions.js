@@ -9,7 +9,7 @@ export const fetchAllPosts = () => (dispatch) => {
   return (
     APIUtil.fetchAllPosts()
       .then(posts => dispatch(receiveAllPosts(posts)))
-  )
+  );
 };
 
 export const fetchSinglePost = (id) => (dispatch) => (
@@ -19,7 +19,7 @@ export const fetchSinglePost = (id) => (dispatch) => (
 
 export const createPost = (post) => (dispatch) => (
   APIUtil.createPost(post)
-    .then(post => dispatch(receiveSinglePost(post)))
+    .then(newPost => dispatch(receiveSinglePost(newPost)))
 
 );
 
