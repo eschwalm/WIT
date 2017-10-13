@@ -6,18 +6,20 @@ import PostShow from './post_show';
 class PostsIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = { posts: [] };
   }
-  componentWillMount() {
-    Axios.get('http://localhost:3000/api/posts')
 
-    .then(response => this.setState({ posts: response.data }));
+  // componentWillMount() {
+  //   Axios.get('http://localhost:3000/api/posts')
+  //     .then(response => this.setState({ posts: response.data }));
+  // }
+
+  componentWillMount() {
+    this.props.fetchAllPosts();
   }
 
   renderPosts() {
-    return this.state.posts.map(post =>
+    return this.props.posts.map(post =>
       <PostShow key={post._id} post={post} />
-
     );
   }
 

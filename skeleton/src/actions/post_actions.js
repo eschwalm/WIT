@@ -5,10 +5,12 @@ export const REMOVE_POST = 'REMOVE_POST';
 
 
 // async actions
-export const fetchAllPosts = () => (dispatch) => (
-  APIUtil.fetchAllPosts()
-    .then(posts => dispatch(receiveAllPosts(posts)))
-);
+export const fetchAllPosts = () => (dispatch) => {
+  return (
+    APIUtil.fetchAllPosts()
+      .then(posts => dispatch(receiveAllPosts(posts)))
+  )
+};
 
 export const fetchSinglePost = (id) => (dispatch) => (
   APIUtil.fetchSinglePost(id)
