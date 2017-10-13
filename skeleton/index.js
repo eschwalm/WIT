@@ -7,6 +7,9 @@ import PostsIndexContainer from './src/containers/posts_index_container';
 import { Provider } from 'react-redux';
 import configureStore from './src/store/store';
 
+// For testing create post
+import CreatePost from './src/components/create_post';
+
 //expand component to fill entire content area of device
 
 const App = () => (
@@ -23,3 +26,6 @@ const App = () => (
 );
 
 AppRegistry.registerComponent('skeleton', () => App);
+
+// For testing Create Post
+// <CreatePost />
