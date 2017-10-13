@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, ListView } from 'react-native';
 import Axios from 'axios';
 import PostShow from './post_show';
 
@@ -14,11 +14,14 @@ class PostsIndex extends Component {
   // }
 
   componentWillMount() {
-    this.props.fetchAllPosts();
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
+    this.dataSource = ds.cloneWithRows(this.props.fetchAllPosts());
   }
 
   renderPosts() {
-    return this.props.posts.map(post =>
+    return this.props.posts.reverse().map(post =>
       <PostShow key={post._id} post={post} />
     );
   }
