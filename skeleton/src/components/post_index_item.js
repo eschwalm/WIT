@@ -4,10 +4,19 @@ import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
 import { Actions } from 'react-native-router-flux';
+import Axios from 'axios';
 
 class PostIndexItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      answers: {}
+    };
+  }
+
+  componentDidMount() {
+    this.props.fetchAnswers(this.props.post._id)
+    .then(response => this.setState({answers: response.data}));
   }
 
   render() {
