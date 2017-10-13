@@ -23,7 +23,7 @@ const fetchAllPosts = async () => {
 const fetchSinglePost = async (id) => {
   try {
     const { data } = await axios.get(`/posts/${id}`);
-    return data.post;
+    return data;
   } catch (e) {
     throw e;
   }
