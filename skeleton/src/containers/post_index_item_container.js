@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSinglePosts } from '../../actions/post_actions';
-import PostShow from '../../components/posts_index';
+import { fetchSinglePost } from '../../actions/post_actions';
+import PostIndexItem from '../components/post_index_item';
 
 const mapStateToProps = (state, { match }) => ({
   post: state.posts[match.params.postId]
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(PostShow);
+)(PostIndexItem);
