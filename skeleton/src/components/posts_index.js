@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, ListView } from 'react-native';
 import Axios from 'axios';
-import PostIndexItem from './post_index_item';
+import PostIndexItemContainer from '../containers/post_index_item_container';
 
 class PostsIndex extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class PostsIndex extends Component {
 
   renderPosts() {
     return this.props.posts.reverse().map(post =>
-      <PostIndexItem key={post._id} post={post} />
+      <PostIndexItemContainer key={post._id} post={post} />
     );
   }
 

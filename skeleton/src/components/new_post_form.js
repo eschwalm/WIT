@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TextInput, Picker, Text, View } from 'react-native';
+import { TextInput, Picker, Text, View, Button } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
-import Button from './button';
 import { createPost } from '../actions/post_actions';
 
 
@@ -27,20 +26,19 @@ class NewPostForm extends Component {
     return (
         <View>
           <TextInput
-            style={{height: 100}}
             value={this.state.title}
             onChangeText={(title) => this.setState({title})} />
 
           <Picker onValueChange={(category) => this.setState({category})}>
-            <Picker.Item label="Nature" value="nature" />
-            <Picker.Item label="Objects" value="objects" />
-            <Picker.Item label="People" value="people" />
-            <Picker.Item label="Fashion" value="fashion" />
-            <Picker.Item label="Design" value="design" />
-            <Picker.Item label="I don't know!" value="idk" />
+            <Picker.Item label="Nature" value="Nature" />
+            <Picker.Item label="Objects" value="Objects" />
+            <Picker.Item label="People" value="People" />
+            <Picker.Item label="Fashion" value="Fashion" />
+            <Picker.Item label="Design" value="Design" />
+            <Picker.Item label="Random" value="Random" />
           </Picker>
           <Text>{this.state.category}</Text>
-        
+
           <Button
             title="Submit"
             onPress={this.handleSubmit}>
