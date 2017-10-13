@@ -5,7 +5,7 @@ import PostsIndex from '../components/posts_index';
 const mapStateToProps = (state) => {
   return ({
     posts: Object.values(state.posts)
-  })
+  });
 };
 
 const mapDispatchToProps = (dispatch) => ({
