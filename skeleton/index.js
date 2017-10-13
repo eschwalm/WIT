@@ -1,11 +1,10 @@
 import React from 'react';
 import { AppRegistry, View } from 'react-native';
 import Header from './src/components/header';
-import PostsIndex from './src/components/posts_index';
 import PostsIndexContainer from './src/containers/posts_index_container';
-
 import { Provider } from 'react-redux';
 import configureStore from './src/store/store';
+import Routing from './src/router';
 
 // For testing create post
 import CreatePost from './src/components/create_post';
@@ -18,8 +17,7 @@ const App = () => (
   <Provider store={configureStore()} >
 
   <View style={{ flex: 1}}>
-    <Header headerText={'Posts'}/>
-    <PostsIndexContainer />
+    <Routing />
   </View>
 
 </Provider>

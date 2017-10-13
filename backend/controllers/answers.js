@@ -2,10 +2,12 @@
 
 import mongoose from 'mongoose';
 import Answer from '../models/answer';
-
+// import { postUpdate } from './posts';
+import Post from '../models/post';
 
 export const answerIndex = function(req, res) {
-  Answer.find({ post_id: req.params.postId }, function(err, answer) {
+  Answer.find({ post_id: req.params.postId })
+    .sort({ 'upvotes': -1 }).exec(function(err, answer) {
     if (err)
       res.send(err);
     res.send(answer);
@@ -19,8 +21,8 @@ export const answerCreate = function(req, res) {
     if (err)
       res.send(err);
     res.send(answer);
-
   });
+  Post.findOneAndUpdate({_id: req.params.postId });
 };
 
 export const answerShow = function(req, res) {
@@ -38,6 +40,7 @@ export const answerUpdate = function(req, res) {
       res.send(err);
     res.send(answer);
   });
+  Post.findOneAndUpdate({_id: req.params.postId });
 };
 
 export const deletePostAnswers = function(req, res) {
