@@ -13,9 +13,13 @@ const Routing = () => {
           rightTitle='Add'
           component={PostsIndexContainer}
           title='Posts' />
+        <Scene key='postView'
+          component={PostView}
+          title='Identify Me' />
         <Scene key='postForm'
           component={NewPostForm}
-          title='Create Post'/>
+          title='Create Post' />
+
       </Scene>
     </Router>
   );
