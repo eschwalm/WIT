@@ -23,6 +23,7 @@ export const postIndex = function(req, res) {
 
 export const postCreate = function(req, res) {
   var newPost = new Post(req.body);
+
   newPost.save(function(err, post) {
     if (err)
       res.send(err);
