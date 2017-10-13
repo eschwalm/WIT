@@ -15,7 +15,7 @@ const Routing = () => {
           title='Posts' />
         <Scene key='postForm'
           component={NewPostForm}
-          title='createPost'/>
+          title='Create Post'/>
       </Scene>
     </Router>
   );
