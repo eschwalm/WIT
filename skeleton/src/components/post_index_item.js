@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
+import Axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
-import { Actions } from 'react-native-router-flux';
-import Axios from 'axios';
+import AnswerFormContainer from '../containers/answer_form_container';
+
 
 class PostIndexItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: {}
+      answers: {},
     };
   }
 
@@ -28,16 +30,6 @@ class PostIndexItem extends Component {
       headerTextStyle: {
         fontSize: 18
       },
-      thumbnailStyle: {
-        height: 50,
-        width: 50
-      },
-      thumbnailContainerStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10
-      },
       imageStyle: {
         height: 300,
         flex: 1,
@@ -45,10 +37,9 @@ class PostIndexItem extends Component {
       }
     };
 
-    const { thumbnailStyle,
+    const {
       headerContentStyle,
       headerTextStyle,
-      thumbnailContainerStyle,
       imageStyle
     } = styles;
 
@@ -65,11 +56,7 @@ class PostIndexItem extends Component {
             style={imageStyle}
             source={ { uri: this.props.post.img } } />
         </CardSection>
-        <CardSection>
-          <Button>
-            Answer
-          </Button>
-        </CardSection>
+        <AnswerFormContainer postId={this.props.post._id} />
       </Card>
     );
   }
