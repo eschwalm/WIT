@@ -68,14 +68,14 @@ class NewPostForm extends Component {
     return (
         <View>
           {this.state.img?
-
-          <Button title="Select Image" onPress={this.pickImage} />
-            
           <Image
             style={{ height:300 }}
             source={{ uri: this.state.img }} /> :
           null
           }
+
+          <Button title="Select Image" onPress={this.pickImage} />
+
           <Card>
             <CardSection style={styles.containerStyle}>
               <TextInput
