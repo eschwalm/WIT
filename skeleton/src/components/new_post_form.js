@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TextInput, Picker, Text, View, Button } from 'react-native';
+import {
+  AppRegistry, TextInput, Picker, Text,
+  View, Button, Image, ImagePickerIOS } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
 
-
-class NewPostForm extends Component {
+export default class NewPostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +19,16 @@ class NewPostForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.pickImage();
+  }
+
+  pickImage() {
+    ImagePickerIOS.openSelectDialog({}, imageUri => {
+      this.setState({ img: imageUri });
+    }, error => console.error(error));
+  }
+
   handleSubmit() {
     console.log("Testing the submit button: ", this.state);
   }
@@ -25,6 +36,10 @@ class NewPostForm extends Component {
   render() {
     return (
         <View>
+          {this.state.img?
+          <Image style={{ height:300 }} source={{ uri: this.state.img }} /> :
+          null
+          }
           <TextInput
             value={this.state.title}
             onChangeText={(title) => this.setState({title})} />
@@ -49,4 +64,4 @@ class NewPostForm extends Component {
   }
 }
 
-export default NewPostForm;
+AppRegistry.registerComponent('NewPostForm', () => NewPostForm);
