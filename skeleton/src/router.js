@@ -10,17 +10,19 @@ const Routing = () => {
     <Router>
       <Scene key="main" >
         <Scene key='postIndex'
+          initial='true'
           onRight={() => Actions.postForm()}
           rightTitle='Add'
           component={PostsIndexContainer}
-          title='Posts' />
+          title='Home' />
         <Scene key='postView'
           component={PostView}
           title='Identify Me' />
         <Scene key='postForm'
+          onLeft={() => Actions.postIndex()}
+          leftTitle='Home'
           component={NewPostFormContainer}
           title='Create Post' />
-
       </Scene>
     </Router>
   );

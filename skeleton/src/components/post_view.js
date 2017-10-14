@@ -13,7 +13,7 @@ class PostView extends Component {
     return (
       <Card>
         <CardSection>
-
+          <Text>Hello!</Text>
         </CardSection>
       </Card>
     );
