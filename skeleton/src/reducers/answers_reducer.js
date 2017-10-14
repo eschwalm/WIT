@@ -18,7 +18,7 @@ const PostsReducer = (state = {}, action) => {
     case RECEIVE_UPDATED_ANSWER:
       newState = merge({}, newState, state.answers);
       Object.keys(newState).map( idx => {
-        if (newState[idx].id === action.answer.id) {
+        if (newState[idx]._id === action.answer._id) {
           newState[idx] = action.answer;
         }
       });

@@ -1,6 +1,7 @@
 import * as APIUtil from '../api/post_api';
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_SINGLE_POST = 'RECEIVE_SINGLE_POST';
+export const RECEIVE_CATEGORY = 'RECEIVE_CATEGORY';
 export const REMOVE_POST = 'REMOVE_POST';
 
 
@@ -8,6 +9,13 @@ export const REMOVE_POST = 'REMOVE_POST';
 export const fetchAllPosts = () => (dispatch) => {
   return (
     APIUtil.fetchAllPosts()
+      .then(posts => dispatch(receiveAllPosts(posts)))
+  );
+};
+
+export const fetchCategoryPosts = (category) => (dispatch) => {
+  return (
+    APIUtil.fetchCategoryPosts(category)
       .then(posts => dispatch(receiveAllPosts(posts)))
   );
 };
@@ -32,6 +40,10 @@ export const deletePost = (id) => (dispatch) => (
 export const receiveAllPosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
   posts
+});
+
+export const receiveCategoryPosts = posts => ({
+  type: RECEIVE_CATEGORY
 });
 
 export const receiveSinglePost = (post) => ({

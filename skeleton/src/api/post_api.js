@@ -20,6 +20,15 @@ const fetchAllPosts = async () => {
   }
 }
 
+const fetchCategoryPosts = async category => {
+  try {
+    const { data } = await axios.get(`/${category}`);
+    return data;
+  } catch (e) {
+    throw e;
+  }
+}
+
 const fetchSinglePost = async (id) => {
   try {
     const { data } = await axios.get(`/posts/${id}`);
