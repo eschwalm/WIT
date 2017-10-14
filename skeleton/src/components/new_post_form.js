@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import {
   AppRegistry, TextInput, Picker, Text,
   View, Button, Image, ImagePickerIOS } from 'react-native';
+
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
+import { uploadImage } from '../api/image_api';
 
 export default class NewPostForm extends Component {
   constructor(props) {
@@ -25,19 +27,28 @@ export default class NewPostForm extends Component {
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
+      console.log(imageUri);
       this.setState({ img: imageUri });
-    }, error => console.error(error));
+    }, error => this.props.navigation.goBack(null));
   }
 
-  handleSubmit() {
-    console.log("Testing the submit button: ", this.state);
+  handleSubmit(e) {
+    e.preventDefault();
+    uploadImage(this.state.img);
+    // .then(res => this.props.createPost({
+    //   title: this.state.title,
+    //   img: res.secure_url,
+    //   category: this.state.category
+    // }));
   }
 
   render() {
     return (
         <View>
           {this.state.img?
-          <Image style={{ height:300 }} source={{ uri: this.state.img }} /> :
+          <Image
+            style={{ height:300 }}
+            source={{ uri: this.state.img }} /> :
           null
           }
           <TextInput

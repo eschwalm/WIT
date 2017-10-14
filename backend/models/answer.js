@@ -2,10 +2,18 @@ import mongoose, { Schema } from 'mongoose';
 
 // Define post schema
 var answerSchema = new Schema({
-  body: String,
-  upvotes: Number,
-  post_id: String,
-  created_at: Date
+  body: {
+    type: String,
+    required: true
+  },
+  upvotes: {
+    type: Number,
+    required: true
+  },
+  post_id: {
+    type: String,
+    required: true
+  }
 },
 {
   timestamps: true
