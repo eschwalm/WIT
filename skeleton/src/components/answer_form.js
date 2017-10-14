@@ -3,56 +3,32 @@ import { View, TextInput } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
+import AnswerModal from './answer_modal';
 
 class AnswerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: '',
-      upvotes: 0,
-      post_id: this.props.postId,
+      modalIsOpen: false
     };
   }
 
-  handleSubmit() {
-    this.props.createAnswer(this.state);
-    this.setState({
-      body: '',
-      upvotes: 0,
-      post_id: ''
-    });
+  toggleModal() {
+    this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
   render() {
-    const styles = {
-      inputStyle: {
-        color: '#000',
-        paddingRight: 5,
-        paddingLeft: 5,
-        fontSize: 18,
-        lineHeight: 23,
-        flex: 3
-      },
-      containerStyle: {
-        height: 40,
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center'
-      }
-    };
-
     return (
       <Card>
-        <CardSection style={styles.containerStyle}>
-          <TextInput
-            onChangeText={(body) => this.setState({body})}
-            value={this.state.body}
-            placeholder='Identify me!'
-            style={styles.inputStyle} />
-        </CardSection>
         <CardSection>
-          <Button onPress={this.handleSubmit.bind(this)}>Answer</Button>
+          <Button onPress={() => this.setState({modalIsOpen: !this.state.modalIsOpen})}>Answer</Button>
         </CardSection>
+        <AnswerModal
+          visible={this.state.modalIsOpen}
+          postId={this.props.postId}
+          createAnswer={this.props.createAnswer}
+          toggleModal={this.toggleModal.bind(this)}>
+        </AnswerModal>
       </Card>
     );
   }
