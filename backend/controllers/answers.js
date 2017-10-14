@@ -5,7 +5,7 @@ import Answer from '../models/answer';
 import Post from '../models/post';
 
 export const answerIndex = function(req, res) {
-  Answer.find({ post_id: req.params.postId })
+  Answer.find({ post_id: req.body._id })
     .sort({ 'upvotes': -1 }).exec(function(err, answer) {
     if (err)
       res.send(err);
@@ -15,13 +15,12 @@ export const answerIndex = function(req, res) {
 
 export const answerCreate = function(req, res) {
   var newAnswer = new Answer(req.body);
-  newAnswer.post_id = req.params.postId;
   newAnswer.save(function(err, answer) {
     if (err)
       res.send(err);
     res.send(answer);
   });
-  Post.findOneAndUpdate({_id: req.params.postId });
+  Post.findOneAndUpdate({_id: req.body.post_id });
 };
 
 export const answerShow = function(req, res) {
@@ -34,12 +33,12 @@ export const answerShow = function(req, res) {
 
 export const answerUpdate = function(req, res) {
   Answer.findOneAndUpdate(
-    {_id: req.params.answerId}, req.body, {new: true}, function(err, answer) {
+    {_id: req.body._id}, req.body, {new: true}, function(err, answer) {
     if (err)
       res.send(err);
     res.send(answer);
   });
-  Post.findOneAndUpdate({_id: req.params.postId });
+  Post.findOneAndUpdate({_id: req.body.post_id });
 };
 
 export const deletePostAnswers = function(req, res) {

@@ -40,6 +40,7 @@ class NewPostForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     uploadImage(this.state.img);
+    // .then( res => console.log(res._response.secure_url));
     // .then(res => this.props.createPost({
     //   title: this.state.title,
     //   img: res.secure_url,

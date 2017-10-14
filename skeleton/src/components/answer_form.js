@@ -15,7 +15,6 @@ class AnswerForm extends Component {
   }
 
   handleSubmit() {
-    console.log(this.state);
     this.props.createAnswer(this.state);
     this.setState({
       body: '',

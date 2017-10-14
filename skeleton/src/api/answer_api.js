@@ -15,7 +15,7 @@ const fetchAnswers = async (id) => {
 
 const createAnswer = async (answer) => {
   try {
-    const res = await axios.post(`/posts/${answer.post_id}/answers`, answer );
+    const res = await axios.post(`/posts/${answer.post_id}/answers`, answer);
     return res;
   } catch (e) {
     throw e;
