@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry, TextInput, Picker, Text,
-  View, Button, Image, ImagePickerIOS } from 'react-native';
+  ScrollView, Button, Image, ImagePickerIOS } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
@@ -66,7 +66,7 @@ class NewPostForm extends Component {
     };
 
     return (
-        <View>
+        <ScrollView>
           {this.state.img?
           <Image
             style={{ height:300 }}
@@ -89,7 +89,6 @@ class NewPostForm extends Component {
               selectedValue={this.state.category}
               onValueChange={(category) => this.setState({category})}>
               <Picker.Item label="Nature" value="Nature" />
-              <Picker.Item label="Objects" value="Objects" />
               <Picker.Item label="People" value="People" />
               <Picker.Item label="Fashion" value="Fashion" />
               <Picker.Item label="Design" value="Design" />
@@ -102,7 +101,7 @@ class NewPostForm extends Component {
               Create
             </Button>
           </Card>
-        </View>
+        </ScrollView>
     );
   }
 }
