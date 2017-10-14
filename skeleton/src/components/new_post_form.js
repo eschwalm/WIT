@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {
   AppRegistry, TextInput, Picker, Text,
   View, Button, Image, ImagePickerIOS } from 'react-native';
-
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
 import { uploadImage } from '../api/image_api';
 
-export default class NewPostForm extends Component {
+class NewPostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,11 +17,12 @@ export default class NewPostForm extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.pickImage = this.pickImage.bind(this);
   }
 
-  componentDidMount() {
-    this.pickImage();
-  }
+  // componentDidMount() {
+  //   // this.pickImage();
+  // }
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
@@ -31,6 +30,12 @@ export default class NewPostForm extends Component {
       this.setState({ img: imageUri });
     }, error => this.props.navigation.goBack(null));
   }
+
+
+//   handleSubmit() {
+//     console.log("Testing the submit button: ", this.state);
+//     this.props.createPost(this.state)
+//       .then(res => console.log(res))
 
   handleSubmit(e) {
     e.preventDefault();
@@ -63,6 +68,9 @@ export default class NewPostForm extends Component {
     return (
         <View>
           {this.state.img?
+
+          <Button title="Select Image" onPress={this.pickImage} />
+            
           <Image
             style={{ height:300 }}
             source={{ uri: this.state.img }} /> :
@@ -87,6 +95,7 @@ export default class NewPostForm extends Component {
               <Picker.Item label="Design" value="Design" />
               <Picker.Item label="Random" value="Random" />
             </Picker>
+
             <Button
               title="Submit"
               onPress={this.handleSubmit}>
@@ -98,4 +107,5 @@ export default class NewPostForm extends Component {
   }
 }
 
+export default NewPostForm;
 AppRegistry.registerComponent('NewPostForm', () => NewPostForm);

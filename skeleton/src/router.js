@@ -1,7 +1,8 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import PostsIndexContainer from './containers/posts_index_container';
-import NewPostForm from './components/new_post_form';
+// import NewPostForm from './components/new_post_form';
+import NewPostFormContainer from './containers/new_post_form_container';
 import PostView from './components/post_view';
 
 const Routing = () => {
@@ -20,7 +21,7 @@ const Routing = () => {
         <Scene key='postForm'
           onLeft={() => Actions.postIndex()}
           leftTitle='Home'
-          component={NewPostForm}
+          component={NewPostFormContainer}
           title='Create Post' />
       </Scene>
     </Router>

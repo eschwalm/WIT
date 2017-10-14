@@ -27,8 +27,7 @@ export const fetchSinglePost = (id) => (dispatch) => (
 
 export const createPost = (post) => (dispatch) => (
   APIUtil.createPost(post)
-    .then(newPost => dispatch(receiveSinglePost(newPost)))
-
+  .then(newPost => dispatch(receiveSinglePost(newPost)))
 );
 
 export const deletePost = (id) => (dispatch) => (

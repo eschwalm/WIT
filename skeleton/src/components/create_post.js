@@ -48,4 +48,4 @@ class CreatePost extends React.Component {
   }
 }
 
-export default CreatePost;
+// export default CreatePost;
