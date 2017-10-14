@@ -32,6 +32,7 @@ const fetchCategoryPosts = async category => {
 const fetchSinglePost = async (id) => {
   try {
     const { data } = await axios.get(`/posts/${id}`);
+    console.log("API fetchSinglePost data: ", data);
     return data;
   } catch (e) {
     throw e;
@@ -39,11 +40,12 @@ const fetchSinglePost = async (id) => {
 }
 
 // this is assuming that post is a js object with keys and values
-// like so { title: "something", img_url: "someurl.png" }
+// like so { title: "something", img: "someurl.png" }
 const createPost = async (post) => {
   try {
     const res = await axios.post('/posts', post );
-    return res;
+    console.log("API Create data: ", res.config.data);
+    return res.config.data;
   } catch (e) {
     throw e;
   }

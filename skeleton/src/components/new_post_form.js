@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {
   AppRegistry, TextInput, Picker, Text,
-  View, Button, Image, ImagePickerIOS } from 'react-native';
+  View, Button, Image, ImagePickerIOS, Modal } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
-import { createPost } from '../actions/post_actions';
 
-export default class NewPostForm extends Component {
+class NewPostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: 'New Post Title',
-      img: 'an image url',
+      img: null,
       category: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.pickImage = this.pickImage.bind(this);
   }
 
-  componentDidMount() {
-    this.pickImage();
-  }
+  // componentDidMount() {
+  //   // this.pickImage();
+  // }
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
@@ -31,15 +30,20 @@ export default class NewPostForm extends Component {
 
   handleSubmit() {
     console.log("Testing the submit button: ", this.state);
+    this.props.createPost(this.state)
+      .then(res => console.log(res))
   }
 
   render() {
     return (
         <View>
           {this.state.img?
-          <Image style={{ height:300 }} source={{ uri: this.state.img }} /> :
+          <Image style={{ height:200 }} source={{ uri: this.state.img }} /> :
           null
           }
+
+          <Button title="Select Image" onPress={this.pickImage} />
+
           <TextInput
             value={this.state.title}
             onChangeText={(title) => this.setState({title})} />
@@ -52,7 +56,7 @@ export default class NewPostForm extends Component {
             <Picker.Item label="Design" value="Design" />
             <Picker.Item label="Random" value="Random" />
           </Picker>
-          <Text>{this.state.category}</Text>
+          <Text>Category: {this.state.category}</Text>
 
           <Button
             title="Submit"
@@ -64,4 +68,5 @@ export default class NewPostForm extends Component {
   }
 }
 
+export default NewPostForm;
 AppRegistry.registerComponent('NewPostForm', () => NewPostForm);
