@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { uploadImage } from './image_api';
 
 // This is related to something called Genymotion, possibly for android.
 // if (Platform.OS !== 'ios') {
