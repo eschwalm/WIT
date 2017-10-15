@@ -8,7 +8,6 @@ import AnswerFormContainer from '../containers/answer_form_container';
 class PostView extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {

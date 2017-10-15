@@ -4,7 +4,8 @@ import Header from './src/components/header';
 import PostsIndexContainer from './src/containers/posts_index_container';
 import { Provider } from 'react-redux';
 import configureStore from './src/store/store';
-import Routing from './src/router';
+import Main from './src/main';
+
 
 //expand component to fill entire content area of device
 
@@ -14,7 +15,7 @@ const App = () => (
   <Provider store={configureStore()} >
 
   <View style={{ flex: 1}}>
-    <Routing />
+    <Main />
   </View>
 </Provider>
 );
