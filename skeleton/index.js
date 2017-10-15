@@ -6,9 +6,6 @@ import { Provider } from 'react-redux';
 import configureStore from './src/store/store';
 import Routing from './src/router';
 
-// For testing create post
-import CreatePost from './src/components/create_post';
-
 //expand component to fill entire content area of device
 
 const App = () => (
@@ -23,6 +20,3 @@ const App = () => (
 );
 
 AppRegistry.registerComponent('skeleton', () => App);
-
-// For testing Create Post
-// <CreatePost />
