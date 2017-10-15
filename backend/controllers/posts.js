@@ -5,7 +5,7 @@ import Post from '../models/post';
 
 
 export const categoryIndex = function(req, res) {
-  Post.find({ category: req.body.category })
+  Post.find({ category: req.params.category })
     .sort({ 'updatedAt': -1 }).exec(function(err, category) {
     if (err)
       res.send(err);
