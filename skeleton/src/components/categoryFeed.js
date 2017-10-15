@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ScrollView, ListView } from 'react-native';
 import { fetchCategoryPosts } from '../actions/post_actions';
 import PostIndexItemContainer from '../containers/post_index_item_container';
-
 import { connect } from 'react-redux';
 
 
@@ -12,11 +11,14 @@ class CategoryFeed extends Component {
   }
 
   componentDidMount() {
-    console.log("categoryFeed did mount state: ", this.state);
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-    this.dataSource = ds.cloneWithRows(this.props.fetchCategoryPosts('Fashion'));
+    console.log("Did mount this.props: ", this.props );
+    this.props.fetchCategoryPosts(this.props.category)
+      .then(res => console.log("categoryFeed did mount after fetch: ", this.state))
+
+    // const ds = new ListView.DataSource({
+    //   rowHasChanged: (r1, r2) => r1 !== r2
+    // });
+    // this.dataSource = ds.cloneWithRows(this.props.fetchCategoryPosts('Fashion'));
   }
 
   renderPosts() {
@@ -34,7 +36,6 @@ class CategoryFeed extends Component {
   }
 }
 
-  // Hmm what would go into state here, and where does it come from?
   const mapStateToProps = (state) => {
     console.log("CategoryFeed container state", state);
     return ({

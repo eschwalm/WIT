@@ -4,8 +4,8 @@ import { Actions } from 'react-native-router-flux';
 
 class CategoriesIndex extends Component {
 
-  selectCategory() {
-    Actions.categoryFeed();
+  selectCategory(category) {
+    Actions.categoryFeed({category: category});
   }
 
   render() {
@@ -21,12 +21,12 @@ class CategoriesIndex extends Component {
       padding: 10,
       margin: 10
     }
-
+    
     return (
       <View>
-        {categories.map(category => (
-          <TouchableOpacity onPress={this.selectCategory.bind(this)}>
-            <Text style={categoryItemStyle}>{category}</Text>
+        {categories.map((category, idx) => (
+          <TouchableOpacity onPress={this.selectCategory.bind(this, category)}>
+            <Text key={`${category}-${idx}`} style={categoryItemStyle}>{category}</Text>
           </TouchableOpacity>
         ))
         }

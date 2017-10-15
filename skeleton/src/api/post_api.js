@@ -23,6 +23,7 @@ const fetchAllPosts = async () => {
 
 const fetchCategoryPosts = async category => {
   try {
+    console.log("API fetchCategoryPosts input category: ", category);
     const res = await axios.get(`/${category}`);
     console.log("API fetchCategoryPosts data: ", res);
     return res.data;

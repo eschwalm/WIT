@@ -12,7 +12,7 @@ const Routing = () => {
     <Router>
       <Scene key="main" >
         <Scene key='postIndex'
-          onLeft={() => Actions.categories()}
+          onLeft={() => Actions.categoriesIndex()}
           leftTitle='Categories'
           onRight={() => Actions.postForm()}
           rightTitle='Add'
@@ -20,7 +20,7 @@ const Routing = () => {
           title='Home'
           initial />
 
-        <Scene key='categories'
+        <Scene key='categoriesIndex'
           component={CategoriesIndex}
           title="Categories"
           onLeft={() => Actions.postIndex()}
@@ -31,15 +31,15 @@ const Routing = () => {
           title="Category Feed"
           onLeft={() => Actions.postIndex()}
           leftTitle='Home'
-          onRight={() => Actions.categories()}
+          onRight={() => Actions.categoriesIndex()}
           rightTitle='Categories'/>
 
         <Scene key='postView'
           component={PostView}
           title='Identify Me' />
         <Scene key='postForm'
-          onLeft={() => Actions.postIndex()}
-          leftTitle='Home'
+
+        
           component={NewPostFormContainer}
           title='Create Post' />
       </Scene>
