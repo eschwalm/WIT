@@ -21,9 +21,6 @@ class NewPostForm extends Component {
     this.pickImage = this.pickImage.bind(this);
   }
 
-  // componentDidMount() {
-  //   // this.pickImage();
-  // }
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
@@ -31,13 +28,6 @@ class NewPostForm extends Component {
       this.setState({ img: imageUri });
     }, error => this.props.navigation.goBack(null));
   }
-
-
-  // handleSubmit() {
-  //   console.log("Testing the submit button: ", this.state);
-  //   this.props.createPost(this.state)
-  //     .then(res => console.log(res))
-  //   }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -49,6 +39,7 @@ class NewPostForm extends Component {
       category: this.state.category
     }));
 
+    Actions.postIndex();
   }
 
   render() {
