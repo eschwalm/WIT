@@ -9,11 +9,11 @@ const Routing = () => {
     <Router>
       <Scene key="main" >
         <Scene key='postIndex'
-          initial='true'
           onRight={() => Actions.postForm()}
           rightTitle='Add'
           component={PostsIndexContainer}
-          title='Home' />
+          title='Home'
+          initial />
         <Scene key='postView'
           component={PostView}
           title='Identify Me' />

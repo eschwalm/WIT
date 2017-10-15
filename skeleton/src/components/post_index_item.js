@@ -19,6 +19,14 @@ class PostIndexItem extends Component {
   componentDidMount() {
     this.props.fetchAnswers(this.props.post._id)
     .then(response => this.setState({answers: response.data}));
+    console.log(this.state.answers);
+  }
+
+  postSelect() {
+    Actions.postView({
+      post: this.props.post,
+      fetchAnswers: this.props.fetchAnswers
+    });
   }
 
   render() {
@@ -51,7 +59,7 @@ class PostIndexItem extends Component {
             <Text style={headerTextStyle}>{this.props.post.title}</Text>
           </View>
         </CardSection>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.postSelect.bind(this)}>
           <CardSection>
             <Image
               style={imageStyle}
