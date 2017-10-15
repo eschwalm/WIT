@@ -21,7 +21,7 @@ class PostsIndex extends Component {
   }
 
   renderPosts() {
-    return this.props.posts.reverse().map(post =>
+    return this.props.posts.map(post =>
       <PostIndexItemContainer key={post._id} post={post} />
     );
   }
