@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
-import Axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import Card from './card';
 import CardSection from './card_section';
@@ -18,9 +17,7 @@ class PostIndexItem extends Component {
 
   componentDidMount() {
     this.props.fetchAnswers(this.props.post._id)
-    .then(response => this.setState({answers: response.answers}));
-    // .then(response => console.log(response));
-    console.log(this.state.answers);
+    .then(response => this.setState({answers: response.data}));
   }
 
   postSelect() {
