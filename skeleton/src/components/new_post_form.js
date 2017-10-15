@@ -13,7 +13,7 @@ class NewPostForm extends Component {
     this.state = {
       title: '',
       img: '',
-      category: ''
+      category: 'Nature'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
