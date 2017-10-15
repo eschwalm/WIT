@@ -18,11 +18,6 @@ const styles = StyleSheet.create({
     top: 20,
     padding: 10,
   },
-  caption: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    alignItems: 'center',
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -72,7 +67,6 @@ export default class Main extends Component {
         <Router />
         <TouchableOpacity
           onPress={this.toggle}
-          style={styles.button}
         >
         </TouchableOpacity>
       </SideMenu>

@@ -1,38 +1,53 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class CategoriesIndex extends Component {
-
-  selectCategory(category) {
-    Actions.categoryFeed({category: category});
+  _renderItem({item}) {
+    return (
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => Actions.categoryFeed({category: item.title})}>
+        <Text
+          style={styles.textStyle}>
+          {item.title}</Text>
+      </TouchableOpacity>
+    );
   }
 
   render() {
-    const categories = ["Nature", "People", "Design", "Fashion", "Random"];
-    const categoryItemStyle = {
-      fontSize: 26,
-      borderRadius: 10,
-      borderWidth: 3,
-      borderColor: '#2ecc71',
-      alignSelf: 'center',
-      height: 50,
-      width: 200,
-      padding: 10,
-      margin: 10
-    }
-    
+    const categories = [
+      {key: 0, title: "Nature"},
+      {key: 1, title: "People"},
+      {key: 2, title: "Design"},
+      {key: 3, title: "Fashion"},
+      {key: 4, title: "Random"}];
+
     return (
-      <View>
-        {categories.map((category, idx) => (
-          <TouchableOpacity onPress={this.selectCategory.bind(this, category)}>
-            <Text key={`${category}-${idx}`} style={categoryItemStyle}>{category}</Text>
-          </TouchableOpacity>
-        ))
-        }
-      </View>
+      <FlatList
+        data={categories}
+        renderItem={this._renderItem}
+        />
     );
   }
 }
+
+const styles = {
+  textStyle: {
+    alignSelf: 'center',
+    color: '#007aff',
+    fontSize: 16,
+    fontWeight: '600',
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  buttonStyle: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#007aff',
+    marginTop: -1,
+    padding: 10
+  }
+};
 
 export default CategoriesIndex;
