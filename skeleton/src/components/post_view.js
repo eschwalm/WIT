@@ -8,8 +8,37 @@ import AnswerFormContainer from '../containers/answer_form_container';
 class PostView extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    this.state = {
+      answers: []
+    };
   }
+
+  componentWillMount() {
+    this.props.fetchAnswers(this.props.post._id)
+      .then(answers => this.setState({answers}));
+    console.log(this.props.answers);
+  }
+
+  renderAnswers() {
+    const styles = {
+      headerTextStyle: {
+        fontSize: 18
+      }
+    };
+
+    if (this.answers && this.answers.length > 0) {
+      const answers = this.answers.map(answer =>
+        <CardSection>
+          <Text style={styles.headerTextStyle}>
+            {answer.body}
+          </Text>
+        </CardSection>
+      );
+      return answers;
+    }
+  }
+
+
 
   render() {
     const styles = {
@@ -46,6 +75,8 @@ class PostView extends Component {
             source={ { uri: this.props.post.img } } />
         </CardSection>
         <AnswerFormContainer postId={this.props.post._id} />
+          {this.renderAnswers()}
+
       </Card>
     );
   }

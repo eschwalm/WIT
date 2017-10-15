@@ -15,14 +15,10 @@ class PostIndexItem extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchAnswers(this.props.post._id)
-    .then(response => this.setState({answers: response.data}));
-  }
-
   postSelect() {
     Actions.postView({
       post: this.props.post,
+      answers: this.props.answers,
       fetchAnswers: this.props.fetchAnswers
     });
   }
