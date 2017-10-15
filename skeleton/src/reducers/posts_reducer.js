@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_ALL_POSTS,
   RECEIVE_SINGLE_POST,
+  RECEIVE_CATEGORY,
   REMOVE_POST
 } from '../actions/post_actions';
 
