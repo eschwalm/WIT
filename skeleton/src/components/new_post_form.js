@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry, TextInput, Picker, Text,
   ScrollView, Button, Image, ImagePickerIOS } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
@@ -47,6 +48,7 @@ class NewPostForm extends Component {
       img: response,
       category: this.state.category
     }));
+
   }
 
   render() {
