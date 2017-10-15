@@ -6,7 +6,7 @@ import {
   RECEIVE_UPDATED_ANSWER
 } from '../actions/post_actions';
 
-const PostsReducer = (state = {}, action) => {
+const AnswersReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = {};
 
@@ -28,4 +28,4 @@ const PostsReducer = (state = {}, action) => {
   }
 };
 
-export default PostsReducer;
+export default AnswersReducer;

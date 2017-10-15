@@ -15,11 +15,9 @@ class AnswerModal extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    console.log(this.state);
-    console.log(this.props.createAnswer(this.state));
     this.setState({
       body: '',
-      postId: '',
+      post_id: '',
       upvotes: 0
     });
 
