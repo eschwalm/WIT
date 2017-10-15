@@ -1,88 +1,52 @@
-# WIT - What Is This?
-## Background and Overview
-What Is This? is an all purpose identify app. Users upload pictures of things they want to have identified or know the name of, and other users answer. Everyone is an expert of something!
+# Wit - What is this?
+Wit is an all purpose identify app. Users upload pictures of things they want to have identified or know the name of, and other users answer. Everyone is an expert of something!
 
-## Wireframes
+- __Wit prioritizes accessibility:__ Making user accounts and passwords for every little web service is one of the most annoying things about the internet. Instead of User Authentication Wit makes use of iOS' `identifierForVendor` property to keep track of a user's settings and posts. In addition React Native's `AsyncStorage` is utilized to store session info in the devices local storage. No logins. If a user changes their device, they'll lose their data, but that's okay, because post get recycled after a while anyway.
 
-### General View
-![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/GeneralView_mxmsnl.png "General View")
+- __Fast turnaround:__ Old posts are recycled as the app doesn't serve as a
+searchable archive. What would you search for anyway? Users come here to
+post a picture of something they want to identify because googling for it
+proved difficult.
 
-### Question View
-![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/QuestionView_zbmsi4.png 'Question View')
+## Technologies
+Wit uses the MERN stack (MongoDB, Express.js, React Native, Node.js),
+allowing for both client-side and server-side JavaScript and JSON. Mongoose helped with easy schema setup for the NoSQL database, and Node.js with
+Express provides a light weight backend.
 
-### Ask View
-![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/AskView_a4rzhy.png 'Ask View')
+On the front-end we use React Native for modularity and Redux for its
+reliable state handling and uni-directional data flow.
 
-### Search View
-![alt text](http://res.cloudinary.com/dhuab49yi/image/upload/v1507532701/SearchView_umsxcn.png 'Search View')
+## Features and Implementation
+* __Feed:__ Wit's home screen is a `Feed` of all identify-asks, which
+consist of a screen-wide picture, a brief description, and a category.
 
+* __Answers:__ If you see something you know or are also curious about, leave your answer in the popup modal and submit. `Answers` are just that (and hopefully helpful).
+Combined knowledge is endless.
 
-## Functionality and MVP:
-* User can upload a picture with supporting text
-* Posts can have category tags
-* Search bar for tag search
-* Feed of all WITs (What is this?-posts)
-* Tag filtered feeds of WITs
+<img alt="main feed view" src="./docs/images/feed.png" height="540px"/><img alt="answer view" src="./docs/images/answer.png" height="540px"/>
 
-## Bonus features:
-* User’s own feed of identify requests with links to single question view
-* Answers can be up-voted
-* Answers are displayed in order of upvotes
-* Users build clout from up-voted answers
+* __Categories:__ `Categories` like Nature, People, Fashion, Design, or
+Objects give context to an ask, and provide a way for Fashion experts
+(or interested amateurs) to browse only what's in the Fashion feed.
 
-## Technologies and Technical Challenges
-* MongoDB
-* Express.js
-* React Native
-* Node.js
-* Cloudinary for image hosting
+* __Image Uploads and New Posts:__ When you add your own ask, the main focus of it is
+an image. Since you most likely snapped the item in question with your
+phone camera anyway, Wit provides users with easy-access photo uploads from their
+phone's camera roll. Pictures are safely stored with Cloudinary and will
+be deleted along with their posts after about a week.
 
-## Things accomplished over the weekend
-* We had to scrap our iOS Swift Augmented Reality app project Sunday evening as it didn’t seem feasible enough, so we have a little catching up to do still. But we have decided on features and technologies, and a work outline.
+<img alt="image picker view" src="./docs/images/image_picker.png" height="540px"/><img alt="new post view" src="./docs/images/new_post.png" height="540px"/>
 
-## Group Members and Work Breakdown
-Group members are Priya Gurung, Lisa Togler, Evan Schwalm
+## Technical Details
+(Code Snippets!)
 
-We will all:
-* Discuss project planning and more specific task breakdowns at the beginning and end of each day.
-* Use our repo's Issues tab to collect bugs and assign tasks.
-* Research technologies and libraries to use for the project as we go and see fit.
-* Think about overall look, layout and design (front-end design).
-
-### Day-by-Day Breakdown
-
-#### Day 1 (Monday):
-* Learn technologies of MERN stack (React Native, Express.js, Node.js, MongoDB) (all)
-* Become familiar with the overall structure and workflow of the app, know how our technologies interact (all)
-
-#### Day 2 (Tuesday):
-* Have a running server (Evan)
-* Have a database and an idea what our API endpoints look like (Lisa)
-* Have Users set up (or the equivalent of a users table for MongoDB) (Lisa)
-* Make seed data (Evan)
-* Research user image uploads to Cloudinary (Lisa)
-
-#### Day 3 (Wednesday):
-* Functional entry page to the app with basic design and layout (Priya)
-* Main feed view (backend, frontend) (Evan)
-* Single Post View (backend, frontend) (Priya)
-* Comments (backend, frontend) (Lisa)
-
-#### Day 4 (Thursday):
-* Post form (backend, frontend) (Evan)
-* Picture upload (backend, frontend, hosting) (Lisa)
-* Upvotes (backend, frontend) (Priya)
-* Look into/set up hosting (all)
-
-#### Day 5 (Friday):
-* Tags (backend, frontend) (Lisa)
-* Tag Search (backend, frontend) (Evan)
-* Tag feeds (backend, frontend) (Priya)
-
-#### Day 6/7 (Weekend):
-* Iron out last design tweaks issues and bugs: Test, log issues and bugs, fix them (all)
-* Get app on the App Store and curate the app’s App Store page (Not an MVP feature) (Evan)
-* Set up Demo Website including description and screencasts (MVP?) (Priya)
-* Finalize production README incl screenshots/gifs and code snippets (Lisa)
-
-#### Day 8: Project due at 9am
+## Future Development
+* Wit should be on the app store as a full-fledged mobile application.
+* As the user base grows, Wit will need to upgrade its image storage
+solution, and possibly migrate to AWS.
+* Android version of the Wit. More users, more answers.
+* With a larger user base, we can see wanting a way to distinguish good
+answers from bad ones. We'd develop a user clout system. Answers would be
+sorted by upvotes, and users would receive clout for high-vote answers
+in general and specific categories. Users would then have a user account,
+so they wouldn't lose their clout when switching devices.
