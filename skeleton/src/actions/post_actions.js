@@ -41,10 +41,6 @@ export const receiveAllPosts = (posts) => ({
   posts
 });
 
-export const receiveCategoryPosts = posts => ({
-  type: RECEIVE_CATEGORY
-});
-
 export const receiveSinglePost = (post) => ({
   type: RECEIVE_SINGLE_POST,
   post

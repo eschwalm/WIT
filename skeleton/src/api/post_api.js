@@ -23,8 +23,10 @@ const fetchAllPosts = async () => {
 
 const fetchCategoryPosts = async category => {
   try {
-    const { data } = await axios.get(`/${category}`);
-    return data;
+    console.log("API fetchCategoryPosts input category: ", category);
+    const res = await axios.get(`/${category}`);
+    console.log("API fetchCategoryPosts data: ", res);
+    return res.data;
   } catch (e) {
     throw e;
   }
@@ -61,4 +63,4 @@ const deletePost = async (id) => {
   }
 }
 
-export { fetchAllPosts, fetchSinglePost, createPost, deletePost }
+export { fetchAllPosts, fetchSinglePost, fetchCategoryPosts, createPost, deletePost }
