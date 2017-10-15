@@ -44,8 +44,8 @@ const fetchSinglePost = async (id) => {
 const createPost = async (post) => {
   try {
     const res = await axios.post('/posts', post );
-    console.log("API Create data: ", res.config.data);
-    return res.config.data;
+    console.log("API Create data response: ", res.data);
+    return res.data;
   } catch (e) {
     throw e;
   }

@@ -5,7 +5,7 @@ import {
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
-import { uploadImage } from '../api/image_api';
+// import { uploadImage } from '../api/image_api';
 
 class NewPostForm extends Component {
   constructor(props) {
@@ -32,21 +32,22 @@ class NewPostForm extends Component {
   }
 
 
-//   handleSubmit() {
-//     console.log("Testing the submit button: ", this.state);
-//     this.props.createPost(this.state)
-//       .then(res => console.log(res))
+  handleSubmit() {
+    console.log("Testing the submit button: ", this.state);
+    this.props.createPost(this.state)
+      .then(res => console.log(res))
+    }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    uploadImage(this.state.img);
-    // .then( res => console.log(res._response.secure_url));
-    // .then(res => this.props.createPost({
-    //   title: this.state.title,
-    //   img: res.secure_url,
-    //   category: this.state.category
-    // }));
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   uploadImage(this.state.img);
+  //   // .then( res => console.log(res._response.secure_url));
+  //   // .then(res => this.props.createPost({
+  //   //   title: this.state.title,
+  //   //   img: res.secure_url,
+  //   //   category: this.state.category
+  //   // }));
+  // }
 
   render() {
     const styles = {
@@ -70,7 +71,7 @@ class NewPostForm extends Component {
         <ScrollView>
           {this.state.img?
           <Image
-            style={{ height:300 }}
+            style={{ height:180 }}
             source={{ uri: this.state.img }} /> :
           null
           }
