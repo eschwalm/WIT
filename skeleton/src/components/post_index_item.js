@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import Axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import Card from './card';
@@ -51,12 +51,15 @@ class PostIndexItem extends Component {
             <Text style={headerTextStyle}>{this.props.post.title}</Text>
           </View>
         </CardSection>
-        <CardSection onPress={() => Actions.postView(this.props.post._id)}>
-          <Image
-            style={imageStyle}
-            source={ { uri: this.props.post.img } } />
-        </CardSection>
+        <TouchableOpacity>
+          <CardSection>
+            <Image
+              style={imageStyle}
+              source={ { uri: this.props.post.img } } />
+          </CardSection>
+        </TouchableOpacity>
         <AnswerFormContainer postId={this.props.post._id} />
+
       </Card>
     );
   }
