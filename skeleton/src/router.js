@@ -38,8 +38,6 @@ const Routing = () => {
           component={PostView}
           title='Identify Me' />
         <Scene key='postForm'
-
-        
           component={NewPostFormContainer}
           title='Create Post' />
       </Scene>

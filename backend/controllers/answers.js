@@ -5,7 +5,7 @@ import Answer from '../models/answer';
 import Post from '../models/post';
 
 export const answerIndex = function(req, res) {
-  Answer.find({ post_id: req.body._id })
+  Answer.find({ post_id: req.params.postId })
     .sort({ 'upvotes': -1 }).exec(function(err, answer) {
     if (err)
       res.send(err);

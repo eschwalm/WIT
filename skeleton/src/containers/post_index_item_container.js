@@ -7,7 +7,7 @@ import PostIndexItem from '../components/post_index_item';
 
 const mapStateToProps = (state, ownProps) => ({
   post: ownProps.post,
-  answers: state.answers
+  answers: state.answers[ownProps.post._id]
 });
 
 const mapDispatchToProps = (dispatch) => ({
