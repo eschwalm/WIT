@@ -18,8 +18,7 @@ const Routing = () => {
           component={PostView}
           title='Identify Me' />
         <Scene key='postForm'
-          onLeft={() => Actions.postIndex()}
-          leftTitle='Home'
+    
           component={NewPostFormContainer}
           title='Create Post' />
       </Scene>

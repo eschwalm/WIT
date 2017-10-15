@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry, TextInput, Picker, Text,
   ScrollView, Button, Image, ImagePickerIOS } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Card from './card';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
@@ -20,9 +21,6 @@ class NewPostForm extends Component {
     this.pickImage = this.pickImage.bind(this);
   }
 
-  // componentDidMount() {
-  //   // this.pickImage();
-  // }
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
@@ -30,13 +28,6 @@ class NewPostForm extends Component {
       this.setState({ img: imageUri });
     }, error => this.props.navigation.goBack(null));
   }
-
-
-  // handleSubmit() {
-  //   console.log("Testing the submit button: ", this.state);
-  //   this.props.createPost(this.state)
-  //     .then(res => console.log(res))
-  //   }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -47,6 +38,8 @@ class NewPostForm extends Component {
       img: response,
       category: this.state.category
     }));
+
+    Actions.postIndex();
   }
 
   render() {

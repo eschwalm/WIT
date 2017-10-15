@@ -41,7 +41,7 @@ class AnswerModal extends Component {
         flex: 3
       },
       containerStyle: {
-        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         position: 'relative',
         flex: 1,
         justifyContent: 'center',
