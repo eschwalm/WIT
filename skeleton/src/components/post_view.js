@@ -3,6 +3,7 @@ import { Text, View, Image, Linking } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
+import AnswerFormContainer from '../containers/answer_form_container';
 
 class PostView extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class PostView extends Component {
             style={imageStyle}
             source={ { uri: this.props.post.img } } />
         </CardSection>
+        <AnswerFormContainer postId={this.props.post._id} />
       </Card>
     );
   }
