@@ -13,7 +13,7 @@ class NewPostForm extends Component {
     this.state = {
       title: '',
       img: '',
-      category: ''
+      category: 'Random'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,12 +52,14 @@ class NewPostForm extends Component {
   render() {
     const styles = {
       inputStyle: {
+        height: 30,
         color: '#000',
         paddingRight: 5,
         paddingLeft: 5,
         fontSize: 18,
         lineHeight: 23,
-        flex: 3
+        flex: 3,
+        margin: 5
       },
       containerStyle: {
         height: 40,
@@ -69,14 +71,14 @@ class NewPostForm extends Component {
 
     return (
         <ScrollView>
-          {this.state.img?
-          <Image
-            style={{ height:180 }}
-            source={{ uri: this.state.img }} /> :
-          null
-          }
+            <Button title="Select Image" onPress={this.pickImage} />
 
-          <Button title="Select Image" onPress={this.pickImage} />
+            {this.state.img?
+            <Image
+              style={{ height:180, padding: 5 }}
+              source={{ uri: this.state.img }} /> :
+            null
+            }
 
           <Card>
             <CardSection style={styles.containerStyle}>
@@ -90,6 +92,7 @@ class NewPostForm extends Component {
             <Picker
               selectedValue={this.state.category}
               onValueChange={(category) => this.setState({category})}>
+              <Picker.Item label="Select a Category" value="Random" />
               <Picker.Item label="Nature" value="Nature" />
               <Picker.Item label="People" value="People" />
               <Picker.Item label="Fashion" value="Fashion" />
