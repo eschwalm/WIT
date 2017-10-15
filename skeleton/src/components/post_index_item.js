@@ -12,13 +12,14 @@ class PostIndexItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: {},
+      answers: [],
     };
   }
 
   componentDidMount() {
     this.props.fetchAnswers(this.props.post._id)
-    .then(response => this.setState({answers: response.data}));
+    .then(response => this.setState({answers: response.answers}));
+    // .then(response => console.log(response));
     console.log(this.state.answers);
   }
 

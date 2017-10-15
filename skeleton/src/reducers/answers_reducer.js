@@ -4,15 +4,22 @@ import {
   RECEIVE_POST_ANSWERS,
   RECEIVE_ANSWER,
   RECEIVE_UPDATED_ANSWER
-} from '../actions/post_actions';
+} from '../actions/answer_actions';
 
-const PostsReducer = (state = {}, action) => {
+const AnswersReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = {};
 
   switch (action.type) {
     case RECEIVE_POST_ANSWERS:
-      return merge({}, action.answers);
+      action.answers.forEach( answer => {
+        if (newState[answer.post_id]) {
+          newState[answer.post_id] += answer;
+        } else {
+          newState[answer.post_id] = [answer];
+        }
+      });
+      return merge({}, state, newState);
     case RECEIVE_ANSWER:
       return merge({}, state.answers, action.answer);
     case RECEIVE_UPDATED_ANSWER:
@@ -28,4 +35,4 @@ const PostsReducer = (state = {}, action) => {
   }
 };
 
-export default PostsReducer;
+export default AnswersReducer;

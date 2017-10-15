@@ -5,12 +5,10 @@ export const RECEIVE_UPDATED_ANSWER = 'RECEIVE_UPDATED_ANSWER';
 
 
 
-export const fetchAnswers = (id) => (dispatch) => {
-  return (
+export const fetchAnswers = (id) => (dispatch) => (
     APIUtil.fetchAnswers(id)
       .then(answers => dispatch(receiveAnswers(answers)))
-  );
-};
+);
 
 export const updateAnswer = (path) => (dispatch) => (
   APIUtil.updateAnswer(path)
