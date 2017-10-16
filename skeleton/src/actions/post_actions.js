@@ -1,3 +1,4 @@
+import { Actions } from 'react-native-router-flux';
 import * as APIUtil from '../api/post_api';
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_SINGLE_POST = 'RECEIVE_SINGLE_POST';
@@ -27,8 +28,11 @@ export const fetchSinglePost = (id) => (dispatch) => (
 
 export const createPost = (post) => (dispatch) => (
   APIUtil.createPost(post)
-  .then(newPost => dispatch(receiveSinglePost(newPost)))
-);
+  .then(newPost => {
+    dispatch(receiveSinglePost(newPost));
+    Actions.postIndex({type: 'reset'})
+}));
+
 
 export const deletePost = (id) => (dispatch) => (
   APIUtil.deletePost(id)

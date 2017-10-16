@@ -18,8 +18,6 @@ class PostIndexItem extends Component {
   postSelect() {
     Actions.postView({
       post: this.props.post,
-      answers: this.props.answers,
-      fetchAnswers: this.props.fetchAnswers
     });
   }
 
