@@ -51,8 +51,6 @@ class PostView extends Component {
   }
 
   render() {
-    // console.log(this.props);
-    console.log(this.props.answers);
     const styles = {
       headerContentStyle: {
         flexDirection: 'column',
