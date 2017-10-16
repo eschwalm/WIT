@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ListView, Image } from 'react-native';
+import { Text, View, ScrollView, ListView, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchAnswers } from '../actions/answer_actions';
 import Card from './card';
@@ -40,14 +40,23 @@ class PostView extends Component {
     if (Object.keys(answers).length > 0) {
       return Object.keys(answers).map(key => {
         return (
-          <Text
-            key={answers[key]._id}
-            >
-            {answers[key].body}
-          </Text>
+          <CardSection>
+            <Text
+              key={answers[key]._id}
+              >
+              {answers[key].body}
+            </Text>
+          </CardSection>
         );
       });
     }
+    return (
+      <CardSection>
+        <Text>
+          Be the first to answer this post!
+        </Text>
+      </CardSection>
+    )
   }
 
   render() {
@@ -73,23 +82,23 @@ class PostView extends Component {
     } = styles;
 
     return (
-      <Card>
-        <CardSection>
-          <View style={headerContentStyle}>
-            <Text>{this.props.post.category}</Text>
-            <Text style={headerTextStyle}>{this.props.post.title}</Text>
-          </View>
-        </CardSection>
-        <CardSection>
-          <Image
-            style={imageStyle}
-            source={ { uri: this.props.post.img } } />
-        </CardSection>
-        <AnswerFormContainer postId={this.props.post._id} />
-        <Text>
-          { this.renderRows() }
-        </Text>
-      </Card>
+      <ScrollView>
+        <Card>
+          <CardSection>
+            <View style={headerContentStyle}>
+              <Text>{this.props.post.category}</Text>
+              <Text style={headerTextStyle}>{this.props.post.title}</Text>
+            </View>
+          </CardSection>
+          <CardSection>
+            <Image
+              style={imageStyle}
+              source={ { uri: this.props.post.img } } />
+          </CardSection>
+          <AnswerFormContainer postId={this.props.post._id} />
+            { this.renderRows() }
+        </Card>
+      </ScrollView>
     );
   }
 }
