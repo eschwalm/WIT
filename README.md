@@ -22,9 +22,12 @@ reliable state handling and uni-directional data flow.
 * __Feed:__ Wit's home screen is a `Feed` of all identify-asks, which
 consist of a screen-wide picture, a brief description, and a category.
 
+    <img alt="feed view" src="./docs/images/feed.gif"/>
+
 * __Answers:__ If you see something you know or are also curious about, leave your answer in the popup modal and submit. `Answers` are just that (and hopefully helpful).
 Combined knowledge is endless.
-<iframe src="https://giphy.com/embed/xT9Igt7t3GyKZGqFUs" width="240" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+    <img alt="answer view" src="./docs/images/answer.gif"/>
 
 * __Categories:__ `Categories` like Nature, People, Fashion, Design, or
 Objects give context to an ask, and provide a way for Fashion experts
@@ -35,7 +38,8 @@ an image. Since the user most likely snapped the item in question with their
 phone camera anyway, Wit provides them with easy-access photo uploads from their
 phone's camera roll. Pictures are safely stored with Cloudinary web storage and will
 be deleted along with their posts after about a week.
-<iframe src="https://giphy.com/embed/l1J9AOTQNvd2tCUx2" width="238" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+    <img alt="new post view" src="./docs/images/new_post.gif"/>
 
 ## Technical Details
 ### Details about our cool MongoDB backend
