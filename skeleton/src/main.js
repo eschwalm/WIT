@@ -69,11 +69,7 @@ export default class Main extends Component {
         <TouchableOpacity
           onPress={this.toggle}
         >
-        <Icon
-          name='menu' 
-          style={{padding: 10, marginLeft:10}}
-          size={20} color="black"
-          type={"font-awesome"}/>
+        
         </TouchableOpacity>
       </SideMenu>
     );

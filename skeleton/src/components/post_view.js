@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ListView, Image } from 'react-native';
-import { connect } from 'react-redux';
-import { fetchAnswers } from '../actions/answer_actions';
+import { Text, View, ScrollView, ListView, Image } from 'react-native';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
@@ -10,14 +8,13 @@ import AnswerFormContainer from '../containers/answer_form_container';
 class PostView extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      answers: []
-    };
   }
 
   componentWillMount() {
-    this.props.fetchAnswers(this.props.post._id);
+    this.props.fetchAnswers(this.props.post._id)
+    .then(answers => this.setState({answers}));
     this.createDataSource(this.props);
+    console.log('props', this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,14 +37,23 @@ class PostView extends Component {
     if (Object.keys(answers).length > 0) {
       return Object.keys(answers).map(key => {
         return (
-          <Text
-            key={key}
-            >
-            {answers[key].body}
-          </Text>
+          <CardSection>
+            <Text
+              key={answers[key]._id}
+              >
+              {answers[key].body}
+            </Text>
+          </CardSection>
         );
       });
     }
+    return (
+      <CardSection>
+        <Text>
+          Be the first to answer this post!
+        </Text>
+      </CardSection>
+    );
   }
 
   render() {
@@ -73,33 +79,25 @@ class PostView extends Component {
     } = styles;
 
     return (
-      <Card>
-        <CardSection>
-          <View style={headerContentStyle}>
-            <Text>{this.props.post.category}</Text>
-            <Text style={headerTextStyle}>{this.props.post.title}</Text>
-          </View>
-        </CardSection>
-        <CardSection>
-          <Image
-            style={imageStyle}
-            source={ { uri: this.props.post.img } } />
-        </CardSection>
-        <AnswerFormContainer postId={this.props.post._id} />
-        <Text>
-          { this.renderRows() }
-        </Text>
-      </Card>
+      <ScrollView>
+        <Card>
+          <CardSection>
+            <View style={headerContentStyle}>
+              <Text>{this.props.post.category}</Text>
+              <Text style={headerTextStyle}>{this.props.post.title}</Text>
+            </View>
+          </CardSection>
+          <CardSection>
+            <Image
+              style={imageStyle}
+              source={ { uri: this.props.post.img } } />
+          </CardSection>
+          <AnswerFormContainer postId={this.props.post._id} />
+            { this.renderRows() }
+        </Card>
+      </ScrollView>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  answers: state.answers
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchAnswers: id => dispatch(fetchAnswers(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostView);
+export default PostView;

@@ -13,14 +13,22 @@ class AnswerModal extends Component {
     };
   }
 
-  handleClick(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    this.setState({
-      body: '',
-      post_id: '',
-      upvotes: 0
-    });
-    this.props.createAnswer(this.state);
+    if (this.state.body) {
+      this.props.createAnswer(this.state);
+      this.setState({
+        body: '',
+        post_id: '',
+        upvotes: 0
+      });
+      this.props.toggleModal();
+    }
+
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
     this.props.toggleModal();
   }
 
@@ -63,8 +71,11 @@ class AnswerModal extends Component {
                 autoCorrect={false} />
             </CardSection>
             <CardSection style={cardSectionStyle}>
-              <Button onPress={this.handleClick.bind(this)}>
+              <Button onPress={this.handleSubmit.bind(this)}>
                 Answer
+              </Button>
+              <Button onPress={this.handleCancel.bind(this)}>
+                Cancel
               </Button>
             </CardSection>
           </View>
