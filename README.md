@@ -38,9 +38,26 @@ be deleted along with their posts after about a week.
 <iframe src="https://giphy.com/embed/l1J9AOTQNvd2tCUx2" width="238" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ## Technical Details
-### Details about our cool MongoDB backend
-- mongoose db schema code snippets
-- routes code snippet
+### Image Uploads
+- Images are uploaded and hosted on Cloudinary. This allowed our backend to be light by storing only the necessary information.
+```javascript
+export const uploadImage = async (uri) => {
+    const form = new FormData();
+    form.append('file', {uri: uri, type: 'image/png', name: 'upload.png'});
+    form.append('upload_preset', 'wit-app');
+    form.append('api_key', cl.api_key);
+    form.append('timestamp', (Date.now() / 1000) | 0);
+
+    const request = await axios.post(
+      'https://api.cloudinary.com/v1_1/' + cl.cloud_name + '/image/upload/',
+      form, {
+      headers: { "X-Requested-With": "XMLHttpRequest" },
+    });
+
+    const response = await request.data;
+    return response;
+};
+```
 
 ### Redux Cycle
 - `Axios` handles asynchronous `XMLHttpRequests` to the backend API using JSON as the format, like the `createPost` request below:
