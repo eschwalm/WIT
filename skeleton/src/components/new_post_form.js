@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry, TextInput, Picker, Text,
-  ScrollView, View, Image, ImagePickerIOS } from 'react-native';
+  ScrollView, View, Image, ImagePickerIOS, ActivityIndicator } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Card from './card';
 import Button from './button';
@@ -15,13 +15,21 @@ class NewPostForm extends Component {
     this.state = {
       title: '',
       img: '',
-      category: 'Random'
+      category: 'Random',
+      isLoading: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.pickImage = this.pickImage.bind(this);
   }
 
+  toggleLoader = () => {
+    if (this.state.isLoading === true) {
+      this.setState({isLoading: false})
+    } else {
+      this.setState({isLoading: true})
+    }
+  };
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
@@ -32,6 +40,7 @@ class NewPostForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.toggleLoader();
     uploadImage(this.state.img)
     .then(response =>
       this.props.createPost({
@@ -66,9 +75,12 @@ class NewPostForm extends Component {
       }
     };
 
+    console.log("Loading :", this.state);
+
     return (
       <Card>
         <ScrollView>
+
           <Button onPress={this.pickImage}>
             Select Image
           </Button>
@@ -102,10 +114,11 @@ class NewPostForm extends Component {
               <Picker.Item label="Random" value="Random" />
             </Picker>
           </CardSection>
-          <Button
-            onPress={this.handleSubmit}>
-            Submit
-          </Button>
+
+          { this.state.isLoading ?
+            <ActivityIndicator size="large" style={[{padding: 20}, {transform: [{scale: 1.5}]}]} /> : null }
+          { (!this.state.isLoading) ? <Button onPress={this.handleSubmit}>Submit</Button> : null }
+
         </ScrollView>
       </Card>
     );
