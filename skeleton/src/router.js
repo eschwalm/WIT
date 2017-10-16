@@ -2,7 +2,7 @@ import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import PostsIndexContainer from './containers/posts_index_container';
 import NewPostFormContainer from './containers/new_post_form_container';
-import PostView from './components/post_view';
+import PostViewContainer from './containers/post_view_container';
 
 import CategoriesIndex from './components/categoriesIndex';
 import CategoryFeed from './components/categoryFeed';
@@ -36,7 +36,7 @@ const Routing = () => {
           />
 
         <Scene key='postView'
-          component={PostView}
+          component={PostViewContainer}
           title='Identify Me' />
         <Scene key='postForm'
           component={NewPostFormContainer}
