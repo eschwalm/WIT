@@ -107,8 +107,20 @@ export default connect(null, mapDispatchToProps)(NewPostForm);
 ```
 
 ### React Native
-- What's cool about it?
-- A code snippet or two
+- React Native makes navigation a seamless, intuitive experience for developer and user alike.  With the `react-native-router-flux` library, navigation happens on a drop of a simple function call. The below redirects the user to different 'scenes' in the application while also building out navigational pathing to the previous scene.
+
+```javascript
+postSelect() {
+  Actions.postView({
+    post: this.props.post,
+  });
+}
+
+
+<Scene key='postView'
+  component={PostViewContainer}
+  title='Identify Me' />
+```
 
 ## Future Development
 * Wit should be on the app store as a full-fledged mobile application.

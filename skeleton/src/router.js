@@ -9,7 +9,6 @@ import CategoryFeed from './components/categoryFeed';
 import Main from './main';
 
 const Routing = (props) => {
-  console.log();
   return (
     <Router>
       <Scene key="main"

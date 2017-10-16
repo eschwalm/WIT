@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, ListView, Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
@@ -11,16 +12,17 @@ class PostView extends Component {
   }
 
   componentWillMount() {
-    this.props.fetchAnswers(this.props.post._id)
-    .then(answers => this.setState({answers}));
+    this.props.fetchAnswers(this.props.post._id);
+    this.props.fetchSinglePost(this.props.post._id);
+
     this.createDataSource(this.props);
-    console.log('props', this.props);
+
   }
 
   componentWillReceiveProps(nextProps) {
     if (Object.keys(this.props.answers).length !==
         Object.keys(nextProps.answers).length) {
-      this.createDataSource(nextProps);
+        this.createDataSource(nextProps);
     }
   }
 
