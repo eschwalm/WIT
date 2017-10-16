@@ -21,7 +21,10 @@ class PostView extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.createDataSource(nextProps);
+    if (Object.keys(this.props.answers).length !==
+        Object.keys(nextProps.answers).length) {
+      this.createDataSource(nextProps);
+    }
   }
 
   createDataSource({answers}) {
@@ -33,11 +36,14 @@ class PostView extends Component {
   }
 
   renderRows() {
-    if (this.props.answers.length > 0) {
-      return this.props.answers.map(answer => {
+    const {answers} = this.props;
+    if (Object.keys(answers).length > 0) {
+      return Object.keys(answers).map(key => {
         return (
-          <Text>
-            {answer.body}
+          <Text
+            key={answers[key]._id}
+            >
+            {answers[key].body}
           </Text>
         );
       });
@@ -45,7 +51,7 @@ class PostView extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     console.log(this.props.answers);
     const styles = {
       headerContentStyle: {
@@ -90,7 +96,7 @@ class PostView extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   answers: state.answers
 });
 

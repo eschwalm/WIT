@@ -9,6 +9,7 @@ export const answerIndex = function(req, res) {
     .sort({ 'upvotes': -1 }).exec(function(err, answer) {
     if (err)
       res.send(err);
+      console.log(answer);
     res.send(answer);
   });
 };

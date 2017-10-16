@@ -20,7 +20,7 @@ class AnswerModal extends Component {
       post_id: '',
       upvotes: 0
     });
-
+    this.props.createAnswer(this.state);
     this.props.toggleModal();
   }
 

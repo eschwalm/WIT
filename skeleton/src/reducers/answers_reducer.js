@@ -12,14 +12,7 @@ const AnswersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_POST_ANSWERS:
-      action.answers.forEach( answer => {
-        if (newState[answer.post_id]) {
-          newState[answer.post_id] += answer;
-        } else {
-          newState[answer.post_id] = [answer];
-        }
-      });
-      return merge({}, state, newState);
+      return merge({}, action.answers);
     case RECEIVE_ANSWER:
       return merge({}, state.answers, action.answer);
     case RECEIVE_UPDATED_ANSWER:
