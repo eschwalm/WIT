@@ -9,6 +9,7 @@ import {
 import SideMenu from 'react-native-side-menu';
 import Menu from './components/menu';
 import Router from './router';
+import Icon from 'react-native-vector-icons';
 
 // const image = require('./assets/menu.png');
 
@@ -68,6 +69,11 @@ export default class Main extends Component {
         <TouchableOpacity
           onPress={this.toggle}
         >
+        <Icon
+          name='menu' 
+          style={{padding: 10, marginLeft:10}}
+          size={20} color="black"
+          type={"font-awesome"}/>
         </TouchableOpacity>
       </SideMenu>
     );

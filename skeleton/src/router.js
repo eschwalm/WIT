@@ -3,6 +3,8 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import PostsIndexContainer from './containers/posts_index_container';
 import NewPostFormContainer from './containers/new_post_form_container';
 import PostView from './components/post_view';
+import Main from './main';
+import Icon from 'react-native-vector-icons';
 
 import CategoriesIndex from './components/categoriesIndex';
 import CategoryFeed from './components/categoryFeed';
@@ -10,10 +12,11 @@ import CategoryFeed from './components/categoryFeed';
 const Routing = () => {
   return (
     <Router>
-      <Scene key="main" >
+      <Scene key="main"
+        >
         <Scene key='postIndex'
-          onLeft={() => console.log('null')}
-          leftTitle=''
+          onLeft={() => Actions.main()}
+          leftTitle='='
           onRight={() => Actions.postForm()}
           rightTitle='Add'
           component={PostsIndexContainer}

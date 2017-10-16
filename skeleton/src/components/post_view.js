@@ -41,7 +41,7 @@ class PostView extends Component {
       return Object.keys(answers).map(key => {
         return (
           <Text
-            key={answers[key]._id}
+            key={key}
             >
             {answers[key].body}
           </Text>
