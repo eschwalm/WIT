@@ -8,11 +8,6 @@ class PostsIndex extends Component {
     super(props);
   }
 
-  // componentWillMount() {
-  //   Axios.get('http://localhost:3000/api/posts')
-  //     .then(response => this.setState({ posts: response.data }));
-  // }
-
   componentWillMount() {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2

@@ -17,7 +17,7 @@ class PostIndexItem extends Component {
 
   postSelect() {
     Actions.postView({
-      post: this.props.post,
+      post: this.props.post
     });
   }
 
@@ -59,7 +59,6 @@ class PostIndexItem extends Component {
           </CardSection>
         </TouchableOpacity>
         <AnswerFormContainer postId={this.props.post._id} />
-
       </Card>
     );
   }
