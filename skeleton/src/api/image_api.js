@@ -14,7 +14,6 @@ export const uploadImage = async (uri) => {
       headers: { "X-Requested-With": "XMLHttpRequest" },
     });
 
-      const response = await request.data;
-      const url = await response.secure_url;
-      return url;
+    const response = await request.data;
+    return response;
 };

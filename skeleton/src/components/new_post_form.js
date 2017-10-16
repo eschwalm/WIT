@@ -45,7 +45,7 @@ class NewPostForm extends Component {
     .then(response =>
       this.props.createPost({
       title: this.state.title,
-      img: response,
+      img: response.secure_url,
       category: this.state.category
     }));
   }
