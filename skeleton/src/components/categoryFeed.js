@@ -11,14 +11,7 @@ class CategoryFeed extends Component {
   }
 
   componentDidMount() {
-    console.log("Did mount this.props: ", this.props );
     this.props.fetchCategoryPosts(this.props.category)
-      .then(res => console.log("categoryFeed did mount after fetch: ", this.state))
-
-    // const ds = new ListView.DataSource({
-    //   rowHasChanged: (r1, r2) => r1 !== r2
-    // });
-    // this.dataSource = ds.cloneWithRows(this.props.fetchCategoryPosts('Fashion'));
   }
 
   renderPosts() {
@@ -37,7 +30,6 @@ class CategoryFeed extends Component {
 }
 
   const mapStateToProps = (state) => {
-    console.log("CategoryFeed container state", state);
     return ({
       posts: Object.values(state.posts)
     });
