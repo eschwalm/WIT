@@ -28,14 +28,14 @@ class AnswerModal extends Component {
     const styles = {
       cardSectionStyle: {
         justifyContent: 'center',
-        height: 100
+        height: 70
       },
       inputStyle: {
         color: '#000',
         paddingRight: 5,
         paddingLeft: 5,
         fontSize: 18,
-        lineHeight: 23,
+        lineHeight: 20,
         flex: 3
       },
       containerStyle: {

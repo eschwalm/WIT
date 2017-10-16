@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
   AppRegistry, TextInput, Picker, Text,
-  ScrollView, Button, Image, ImagePickerIOS } from 'react-native';
+  ScrollView, View, Image, ImagePickerIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Card from './card';
+import Button from './button';
 import CardSection from './card_section';
 import { createPost } from '../actions/post_actions';
 import { uploadImage } from '../api/image_api';
@@ -38,8 +39,6 @@ class NewPostForm extends Component {
       img: response,
       category: this.state.category
     }));
-
-    Actions.postIndex();
   }
 
   render() {
@@ -59,47 +58,56 @@ class NewPostForm extends Component {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center'
+      },
+      pickerLabelStyle: {
+        fontSize: 18,
+        alignSelf: 'center',
+
       }
     };
 
     return (
+      <Card>
         <ScrollView>
-            <Button title="Select Image" onPress={this.pickImage} />
+          <Button onPress={this.pickImage}>
+            Select Image
+          </Button>
 
-            {this.state.img?
-            <Image
-              style={{ height:180, padding: 5 }}
-              source={{ uri: this.state.img }} /> :
-            null
-            }
+          {this.state.img?
+          <Image
+            style={{ height:180, padding: 5 }}
+            source={{ uri: this.state.img }} /> :
+          null
+          }
 
-          <Card>
-            <CardSection style={styles.containerStyle}>
-              <TextInput
-                placeholder='Add a description!'
-                value={this.state.title}
-                onChangeText={(title) => this.setState({title})}
-                style={styles.inputStyle} />
-            </CardSection>
 
+          <CardSection style={styles.containerStyle}>
+            <TextInput
+              placeholder='Ask a question!'
+              value={this.state.title}
+              onChangeText={(title) => this.setState({title})}
+              style={styles.inputStyle} />
+          </CardSection>
+
+          <CardSection style={{ flexDirection: 'column' }}>
+            <Text style={styles.pickerLabelStyle}>Category</Text>
             <Picker
+              style={{ flex: 1 }}
               selectedValue={this.state.category}
               onValueChange={(category) => this.setState({category})}>
-              <Picker.Item label="Select a Category" value="Random" />
               <Picker.Item label="Nature" value="Nature" />
               <Picker.Item label="People" value="People" />
               <Picker.Item label="Fashion" value="Fashion" />
               <Picker.Item label="Design" value="Design" />
               <Picker.Item label="Random" value="Random" />
             </Picker>
-
-            <Button
-              title="Submit"
-              onPress={this.handleSubmit}>
-              Create
-            </Button>
-          </Card>
+          </CardSection>
+          <Button
+            onPress={this.handleSubmit}>
+            Submit
+          </Button>
         </ScrollView>
+      </Card>
     );
   }
 }
