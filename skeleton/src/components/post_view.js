@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, ListView, Image } from 'react-native';
-import { connect } from 'react-redux';
-import { fetchAnswers } from '../actions/answer_actions';
 import Card from './card';
 import CardSection from './card_section';
 import Button from './button';
@@ -10,14 +8,13 @@ import AnswerFormContainer from '../containers/answer_form_container';
 class PostView extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      answers: []
-    };
   }
 
   componentWillMount() {
-    this.props.fetchAnswers(this.props.post._id);
+    this.props.fetchAnswers(this.props.post._id)
+    .then(answers => this.setState({answers}));
     this.createDataSource(this.props);
+    console.log('props', this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -103,12 +100,4 @@ class PostView extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  answers: state.answers
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchAnswers: id => dispatch(fetchAnswers(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostView);
+export default PostView;
