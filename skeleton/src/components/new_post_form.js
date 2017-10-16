@@ -33,7 +33,6 @@ class NewPostForm extends Component {
 
   pickImage() {
     ImagePickerIOS.openSelectDialog({}, imageUri => {
-      console.log(imageUri);
       this.setState({ img: imageUri });
     }, error => this.props.navigation.goBack(null));
   }
@@ -74,8 +73,6 @@ class NewPostForm extends Component {
 
       }
     };
-
-    console.log("Loading :", this.state);
 
     return (
       <Card>
