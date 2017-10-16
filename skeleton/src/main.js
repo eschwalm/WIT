@@ -9,7 +9,6 @@ import {
 import SideMenu from 'react-native-side-menu';
 import Menu from './components/menu';
 import Router from './router';
-import Icon from 'react-native-vector-icons';
 
 // const image = require('./assets/menu.png');
 
@@ -56,6 +55,16 @@ export default class Main extends Component {
     });
   }
 
+  toggleButton() {
+    return (
+      <TouchableOpacity
+        onPress={this.toggle}
+      >
+      <Text>Categories</Text>
+      </TouchableOpacity>
+    );
+  }
+
   render() {
     const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
 
@@ -65,11 +74,12 @@ export default class Main extends Component {
         isOpen={this.state.isOpen}
         onChange={isOpen => this.updateMenuState(isOpen)}
       >
-        <Router />
+
+      <Router toggle={this.toggle}/>
+
         <TouchableOpacity
           onPress={this.toggle}
         >
-        
         </TouchableOpacity>
       </SideMenu>
     );

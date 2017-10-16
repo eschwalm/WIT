@@ -92,7 +92,6 @@ class NewPostForm extends Component {
           null
           }
 
-
           <CardSection style={styles.containerStyle}>
             <TextInput
               placeholder='Ask a question!'

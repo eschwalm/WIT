@@ -6,15 +6,17 @@ import PostViewContainer from './containers/post_view_container';
 
 import CategoriesIndex from './components/categoriesIndex';
 import CategoryFeed from './components/categoryFeed';
+import Main from './main';
 
-const Routing = () => {
+const Routing = (props) => {
+  console.log();
   return (
     <Router>
       <Scene key="main"
         >
         <Scene key='postIndex'
-          onLeft={() => Actions.main()}
-          leftTitle='='
+          onLeft={() => props.toggle.call(Main)}
+          leftTitle='Categories'
           onRight={() => Actions.postForm()}
           rightTitle='Add'
           component={PostsIndexContainer}
@@ -42,6 +44,7 @@ const Routing = () => {
         <Scene key='postForm'
           component={NewPostFormContainer}
           title='Create Post' />
+
       </Scene>
     </Router>
   );
